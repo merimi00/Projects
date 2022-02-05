@@ -1,0 +1,48 @@
+# depslib dependency file v1.0
+1633769230 source:c:\users\famer\onedrive\documents\s5\algo\tpalgo\algopileslr.c
+	<stdio.h>
+	<stdlib.h>
+
+1633769558 source:c:\users\famer\onedrive\documents\s5\algo\tpalgo\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1634152778 source:c:\users\famer\onedrive\documents\s5\algo\tpnoté\tpalgo\algopileslr.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1634229515 source:c:\users\famer\onedrive\documents\s5\algo\tpnoté\tpalgo\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1637416921 source:c:\users\famer\onedrive\documents\s5\algo\tpnoté\tpalgo\partie1.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1634152778 source:c:\users\famer\onedrive\documents\s5\algo\tpnoté\tpalgo\partie2listes.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1637422637 source:c:\users\famer\onedrive\documents\s5\algo\tpnoté\tpalgo\partie2.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1637416921 source:c:\users\famer\onedrive\documents\tpalgo\partie1.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1640693613 source:c:\users\famer\onedrive\documents\tpalgo\partie2.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1640698248 source:c:\users\famer\onedrive\documents\tpalgo\partie3.c
+	<stdio.h>
+	<stdbool.h>
+	<stdlib.h>
+

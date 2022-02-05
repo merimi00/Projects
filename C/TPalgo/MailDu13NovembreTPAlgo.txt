@@ -1,0 +1,114 @@
+
+Voici le mail du 13 Novembre que Ecmapus n'a pas transmis
+
+Bonjour
+
+Les LDD2 et plus encore les L3 infos ont eu une semaine lourde. Pour vous laisser souffler et que vous ne fassiez pas le TP d'algo à l'arrache, le deadline du rendu des parties 1 et 2 est reporté au lundi 22 à 8h.
+
+N'utilisez pas mon adresse Saclay, utilisez par exemple l'adresse rosaz_AT_lri.fr. Pour une raison que je ne comprends pas, il y a au moins un étudiant donc je ne reçois pas les messages quand il m'écrit sur mon adresse Saclay.
+N'oubliez pas de mettre votre binôme en CC, ainsi que alice.j.jacquot_AT_gmail.com et Raphael.James_AT_lri.fr. Il ne faudra surtout pas oublier de mettre Alice et Raphaël en CC pour la partie 2 car ils en corrigeront une grande partie.
+
+Quelques remarques :
+
+Faire du code aéré et agréable à lire. Si j'ai mal au crane en lisant votre code, je vais m'énerver et ce n'est pas dans votre intérêt.
+
+Partie 1 : 
+
+1 e : 
+
+Ne soyez pas trop naïf, pensez complexité et ne répétez pas inutilement des calculs.
+
+Comment arrêtez-vous le calcul, puisque n n'ira pas jusqu'à l'infini ?
+
+1bis : Un exo que je vous suggère de faire mais qui sera non noté car pas dans l'énoncé initial :
+
+La suite u{n} est définie par u{0}=e-1, puis u{n}= n * u{n_1} - 1.
+
+Faire afficher les 30, 50, 70, 100 premières valeurs. Essayez avec des floats et des doubles. 
+Observez. Explication ? 
+
+Indication : Montrez que u{n} = 1/n + 1/n(n+1) + 1/n(n+1)(n+2) + 1/n(n+1)(n+2)(n+3) + ... et est compris entre 1/n et 1/{n-1}. Étudiez la suite w{n} = v{n} - u{n} avec v{0}=e-1+x, puis v{n}= n * v{n_1} - 1, où x est un (petit) réel.
+
+2 power : 
+
+Programmez plusieurs versions. Il y en a plein dans le TD1 corrigé sur ecampus.
+
+Gérez n<0 sur (au moins) une version itérative et une version récursive.
+
+Observez sur une ou deux versions la différence de précision avec float, double et, si vous les avez, double double.
+
+Note : Vous êtes inégaux devant le sort, vous n'avez pas tous les double double et les long long. Vous n'avez pas tous le même nombre d'octets sur un type donné. Il se peut même que vos floats et vos longs aient le même nombre d'octets, itou avec int et long. Utilisez sizeof pour vérifier.
+
+A-t-on une différence de précision en itératif versus en récursif ? Avec les fonctions en theta(n) et celles en theta(ln n) ?
+
+Mettez des double double et des long long (ou si votre compilo ne les gère pas : des double et des long) et observez le comportement sur (1+1/N)^N, avec N grand : Ça rend rapidement un résultat ? Ça rame dans le vide pendant des heures ? Ça plante avec "Out of memory" ? Est-ce que votre compilo semble gérer le récursif terminal ?
+
+3 Ackermann. 
+
+On peut faire 3 versions : 
+La pure récursive. 
+Celle de la correction du TD qui de fait dérécursifie l'appel intérieur de la pure récursive, mais pas l'extérieur. 
+Vous pouvez en trouver une autre qui dérécursifie l'appel extérieur mais pas l'intérieur (certains ont fait cela dans leur première version)
+
+Comment les différentes versions se comportent-elles sur Ackermann(6) ? 
+Scoop : vous ne les verrez pas donner le résultat (même en l'ayant lancée au big bang et en utilisant toutes les particules de l'univers comme des process parallèles), mais que se passe-t-il ? Ça tourne dans le vide, vous avez un out of memory, un problème de MAXINT ?
+
+4 Suite
+En itératif, est-il indispensable de traiter n==0 à part ?
+En récursif, votre fonction donne-t-elle X{100} ? La réponse doit être oui.
+
+
+Partie 2 : 
+
+ZDP : Testez-là donc sur une liste singleton.
+
+QDZ : facile, en itératif comme en récursif.
+
+CZI : Évitez les diverses lourdeurs. Pas de variable inutile. Pas de code inutile.
+
+IT : Pas trop difficile en récursif. Si vous choisissez l'itératif, testez bien votre fonction... Il est possible de le faire en récursif terminal mais cela exige une bonne maitrise des pointeurs et listes chaînées.
+
+
+EKP, EKD : ce sont des procédures (pour C : fonctions avec type de sortie void) qui modifient L en le passant par adresse (d'où double pointeur). Cf pointeursuite, exemple avec VireDernier dans le poly.
+Parcourir la liste en étant décalé d'un cran en arrière est une option médiocre.
+Évitez les diverses lourdeurs. Pas de variable inutile. Comptez à rebours. Pas de code inutile.
+
+EKP : Ne parcourez pas la liste plus que nécessaire.
+Les petits malins ne feront qu'environ k tests k==0
+Pour les amoureux de l'itératif : Possible mais demande de la maitrise des pointeurs si vous ne vous voulez pas rester piteusement un cran en arrière.
+
+EKD : Technique, mais le code n'est pas long.
+Chez les petits malins, certains appels sont terminaux (mais pas tous)
+
+Permutations : "Il n'y a qu'à recopier le code du poly". Oui et non, vous avez dû vous rendre compte qu'il y a des choses à mettre en place.
+Les petits malins peuvent améliorer la gestion mémoire du code du poly.
+
+Files : bien respecter la structure de l'énoncé. Le type FILE est pointeur vers LISTE qui est lui-même déjà un pointeur. Si la liste est vide, le pointeur FILE est NULL.
+Implémentez Ajoute et Enlève. Vous pouvez faire aussi InitVide et TestVide (Quoique leur code est si court qu'on peut se demander si c'est la peine de faire des fonctionnalités pour cela). Coder l'affichage de la file est pertinent.
+
+Bon Code
+
+
+E : évitez de recalculer n! à chaque itération
+
+POW : Récursif : trouvez le moyen de ne pas faire un test n<0 à chaque appel
+puissanceR2 : laissez celle-ci pour voir, mais il y en a une similaire avec une grosse amélioration à faire.
+
+SUITE X : Itétarif : Isoler le cas n==0 est inutile
+
+SUITE X : Je doute que votre fonction recursive parvienne à calculer X100
+
+ZDP : évitez de faire "if non truc then pif else pouf " ---> if test then pouf else pif
+les else structurent mieux le programme, même si on peut s'en passer avec des return
+    if b return x ; return y ; ----> if b return x ; else return y ;
+    if b {tic ; return ;} toc ;  ------> if b {tic ;} else {toc ;}
+ 
+CZI Rec : non testé, bug
+CZI It : en gros travaux, faire plutôt un while
+CZI RT : en travaux
+int Compte0InitiauxV4_aux(Liste l, int res){
+    else Compte0InitiauxV4_aux(suite(l), res++);
+puisque res est par valeur, faire Compte0InitiauxV4_aux(suite(l), res+1);
+
+IT : sera bien plus facile en récursif
+
