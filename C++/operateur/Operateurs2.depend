@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1591532538 source:d:\program\operateur\duree.cpp
+	<iostream>
+	"Duree.h"
+
+1591532538 d:\program\operateur\duree.h
+
+1591532538 source:d:\program\operateur\main.cpp
+	<iostream>
+	"Duree.h"
+

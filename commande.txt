@@ -1,0 +1,326 @@
+compile and run
+
+variables, iteration and condition, loops, if-statements, data structure, classes and object, OOP
+
+## C++
+
+cd ~/Info111 info-111 fetch Semaine2
+cd ~/Info111 info-111 submit SemaineX GroupeTD
+info-111 jupyter notebook
+
+pour le cout
+#include <iostream>
+using namespace std;
+
+#include <string>
+std::string le nom du caractere 
+
+#include <vector> 
+using namespace std;
+
+vector<int> t;
+t=vector<int>(3);
+t[0]=20;
+OU
+vector<int> t = { 1, 4, 1, 5, 9, 2 };
+Introduit par la norme C++ de 2011
+
+t.size(); // Taille du tableau
+t.push_back(3); // Ajout d’un ´el´ement `a la fin
+Acc`es avec v´eri?cations : t.at(i) au lieu de t[i]
+#include <cmath>
+Indications : pour les chaˆines de caract`eres, 
+l’op´erateur + repr´esente la concat´enation 
+(par exemple "Cou" + "cou" s’´evalue en "Coucou"); 
+x += expression est un raccourci pour x = x + expression;
+ dans une chaˆine de caract`eres, « \n » repr´esente 
+un saut de ligne. 
+
+
+terminal
+
+taper des commandes
+ces commandes sont des programmes
+le programme qui les lit Shell
+des que shell est pret il affiche prompt ou $
+on tape la commande et enter
+
+commande        option          arguments
+cmd             -abcd           arg1 arg2..
+
+types de commandes : -simple, affiche sur le terminal 
+                          ne peux etre executer en dehors
+                     -lancent des appli
+
+commande de base
+
+MANIPULATION DE FICHERS/REPERTOIRES
+
+pwd (print working directory) : indique le repertoire courant
+
+ls (list directory) : affiche contenu (ficheirs et sous-repertoire) 
+                       du repertoire courant            
+
+cd + a folder (change directory) : change de repertoire 
+
+mkdir + nom (make directory) : creer un repertoire
+***si nom du fichier deja existant msg derreur
+
+less + un fichier : affiche le contenu du fichier
+                    arreter Q
+
+.. repertoire parent
+~ repertoire personnel
+famer/Desktop 
+
+touche tab complete ce que tecrit
+ou les fleches les commande precedente 
+
+
+LANCEMENT DE PROGRAMME ET INTERUPTION DE PROGRAMME
+
+ouvrir une appli : taper son nom
+ouvrir un fichier avec une appli :
+  nom de lappli + nom du fichier + $
+***si le fichier existe louvirr sinon le creer
+ ctrl + C
+
+
+unzip : extraire
+rm : delete
+wget : downloads 
+
+mv +nom du fichier actuel +nouveau nom (move) : renommer
+ou
+mv +nom du ficher +nom du folder : deplace
+
+cp +nom fichier1 +nom fichier2 (copy) : 
+
+rm (remove) : delete
+
+man +cmd (manual) : description de la cmd
+
+Compiler le programme 
+g++ bonjour.cpp -o bonjour
+
+Si tout se passe bien, vous n’avez aucun message d’erreur.
+Attention, cette commande ne peut fonctionner que si vous 
+ˆetes dans le bon r´epertoire! Si une erreur s’a?che, la
+ lire et essayer d’identi?er le probl`eme en trouvant le
+ num´ero de ligne : avez-vous bien respect´e le nom du ?chier,
+ les minuscules et majuscules, les retours a` la ligne et espaces, 
+les points-virgules `a la ?n des deux lignes d’instructions? 
+Apr`es chaque correction, enregistrer le ?chier et relancer 
+la compilation en retapant la commande. Rappel : on peut parcourir
+ l’historique des commandes tap´ees dans le terminal avec les 
+touches ? et ? du clavier. 
+
+COMPILEEEEER
+g++ +fichierX +-o +fichierY : lance le compilateur C++ gcc 
+sur le fichierX et cree un fichier executable fichier Y
+
+EXECUTER(sans lextension)
+./fichierX
+
+
+-INT_MAX-1 et INT_MAX 
+long type
+short type
+unsigned type
+
+op´eration         exemple                 r´esultat 
+concat´enation     "bonjour" + "toto"      "bonjourtoto"
+ indexation        "bonjour"[3]            ’j’ 
+longueur           "bonjour".length()"      7
+
+
+
+## JAVA
+
+compiler javac nom.java
+executer java nom
+
+niveau de controle
+public : visible pour tous et par conséquent le moins restrictif ;
+
+protected (protégé) : visible pour le package et l'ensemble de ses sous-classes 
+
+package-protected (protégé par paquet) : généralement visible uniquement par le package dans lequel il se trouve (paramètres par défaut) ;
+
+private (privé) : accessible uniquement dans le contexte dans lequel les variables sont définies (à l'intérieur de la classe dans laquelle il est situé).
+
+
+Un module est un ensemble de fichiers sources associés à un nom, comme un framework. Un framework est un ensemble de fonctionnalités regroupées par contexte particulier. Ceci permet d'accélérer le processus de développement en donnant des conseils sur la façon d'écrire le code.
+
+ignorer continue 
+interrompre la sequence break
+
+final == const
+
+on a ensuite besoin de décliner une classe selon des cas plus particuliers, et c’est là qu’intervient la spécialisation
+
+heritage et polymorphisme
+heritage
+classe mere transport(vitesse nb de place)
+classe fille
+on definit la classe fille et
+on ecrit FILLE+extends+MERE
+
+polymorphisme
+redefinnir une methode de la mere
+c comme le surchargage en c++
+je peux faire ca dans le tp4
+
+main peut recevoir des arguments wesh trop cool
+
+switch(args.length) {
+        case 0: 
+            break;
+        default: System.out.println("Sorry");}
+
+enum direction{north, east, south, west;}
+
+projet SNAKE
+fichier: main; snake; table de jeux; pomme; 
+
+## PYTHON
+
+data types: numbers, string, list[,,,], tuple(,), dictionary{:,}
+
+for dictionaries:
+ .keys() return a list of keys python type
+ .values() return a list of values python object
+
+data type conversion: int(x [,base]) specifies the base if string
+complex(real [,imag]) ; 
+
+operator: arithmetic, comparison, assignment, logical Not, bitwise, membership in not in, identity is is not, 
+
+Python programming language assumes any non-zero and non-null values as TRUE, and if it is either zero or null, then it is assumed as FALSE value.
+
+Decision making - if statements : if (a in [e,f,t]):elif: else:
+
+Loops : while expression: statement(s)
+                for variable in sequence:
+
+break ; continue ; pass
+
+multiple assignment a = b = c = 1 or a,b,c = 1, 2.4, "hey"
+
+mathematical function : abs() ; ceil() .... look at the documentation
+
+random number functions choice(seq) ; randrange(a,b,c) ; random(), seed() ; shuffle(list) ; uniform(x,y)
+
+trigonometric function acos sin ect and hypot(x,y) = sqrt(x*x + y*y) degrees/radians(x) = radian<->degrees
+
+mathematical constants pi and e
+
+Strings "hey"[0:2] = he
+string special operators + *  [] [:] in(true or false) not in 
+
+string formating operator comme en Ocaml
+
+triple quotes , print r = raw characters do not treat the \ 
+LOt of other function just remember that sweetie
+
+Lists delete del list[2] len list [..] + [..]
+Python Expression   Results     Description
+len([1, 2, 3])  3   Length
+[1, 2, 3] + [4, 5, 6]   [1, 2, 3, 4, 5, 6]  Concatenation
+['Hi!'] * 4     ['Hi!', 'Hi!', 'Hi!', 'Hi!']    Repetition
+3 in [1, 2, 3]  True    Membership
+for x in [1, 2, 3]: print x,    1 2 3   Iteration
+
+tuple<->list
+
+dictionary
+del dict['Name']; # remove entry with key 'Name'
+.clear();     # remove all entries in dict
+del dict ;        # delete entire dictionary
+lot of functions you should check that
+
+date and time, exceptions, functions, modules, file I/O
+
+**Modules:**
+
+web dev: requests, django(web), flask(web), twisted(online game dev), beautifulsoup(scrapping), selenium(automation on website)
+
+data science: numpy, panda(data), matplotlib(vizualisation), nltk(data/text processiong), opencv(image, video data)
+
+ML: tensorflow, keras, pytorch, scikit-learn, 
+
+gui: kivy, pyqt5, tkinter, 
+
+pygame
+
+## OCAML
+
+ocamlc -o hello.byte hello.ml
+./hello.byte
+
+ocamlbuild hello.byte
+
+assert e
+
+• Connaissances du noyau fonctionnel :
+:heavy_check_mark: déclarations globales (variables, fonctions) avec let
+:heavy_check_mark: déclarations locales let-in
+:heavy_check_mark: fonctions récursives
+:heavy_check_mark: récursion terminale
+ordre supérieur, fonctions anonymes
+inférence de types et polymorphisme
+:heavy_check_mark: types simples (int, float, string)
+n-uplets et enregistrements
+types algébriques, filtrage
+listes
+• Compétences : savoir écrire des fonctions récursives sur les
+entiers et les listes chaînées
+
+
+
+* Functions
+
+let f x = ..
+
+let rec f x = ...
+
+mutually recursive 
+
+```ocaml
+let rec f x1 ... xn = e1
+and g y1 ... yn = e2
+```
+
+anonymous functions/ lambda expression: dont have a name; let inc = fun x -> x+1 whether let inc x = x+1
+
+function application:
+
+```ocaml
+let x = e1 in e2 <=> (fun x -> e2) e1
+```
+
+pipeline: 
+
+````ocaml
+square (inc 5)
+5 |> inc |> square
+(* both yield 36 *)
+
+5 |> inc |> square |> inc |> inc |> square  
+square (inc (inc (square (inc 5))))
+(* both yield 1444 *)
+````
+
+polymorphic functions
+
+
+
+
+
+
+
+## JAVASCRIPT
+
+## SCALA
+
+## PERL

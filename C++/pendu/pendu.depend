@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1592247326 source:d:\program\pendu\main.cpp
+	<iostream>
+	<string>
+	"fct.h"
+
+1592263772 d:\program\pendu\fct.h
+	<string>
+
+1592263704 source:d:\program\pendu\fct.cpp
+	"fct.h"
+	<string>
+	<iostream>
+
+1623757213 source:c:\users\famer\desktop\pendu\pendu\main.cpp
+	<iostream>
+	<string>
+	"fct.h"
+
+1623757213 c:\users\famer\desktop\pendu\pendu\fct.h
+	<string>
+
+1629216668 source:c:\users\famer\desktop\projet\pendu\fct.cpp
+	"fct.h"
+	<string>
+	<iostream>
+
+1623757213 c:\users\famer\desktop\projet\pendu\fct.h
+	<string>
+
+1629216429 source:c:\users\famer\desktop\projet\pendu\main.cpp
+	<iostream>
+	<string>
+	"fct.h"
+

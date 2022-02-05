@@ -1,0 +1,80 @@
+#header{
+	background-color: #00e6ac; 
+	color: white;
+	text-align: center;
+}
+
+h1{
+	margin: 0;
+}
+
+#container{
+	background-color: #b3ffec;
+	width: 800xp; 
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+a{
+	text-decoration: none;
+	color: red; 
+}
+
+body{
+	background-color: #EEE 
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#content{
+	padding: 10px ;
+}
+
+#nav{
+	width: 150px;
+	float: left;
+}
+
+#nav .selected{
+	font-weight: bold;
+
+}
+
+#nav ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+#main{
+	float: right;
+	color: black;
+	background-color: lightblue;
+
+	}
+
+#footer{
+	clear: both;
+	padding: 10px;
+	background-color: #008060;
+	color: white;
+	text-align: right;
+}
+
+
+/*
+si inclue
+<style>
+	#footer{
+	clear: both;
+	padding: 10px;
+	background-color: #008060;
+	color: white;
+	text-align: right;
+}
+
+ </style>
+
+ ou sinon 
+
+ <h3 style="color: white;"> bla bla bla</h3>
+*/
