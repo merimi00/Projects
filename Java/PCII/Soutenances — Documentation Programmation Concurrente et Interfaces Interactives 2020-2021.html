@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Soutenances — Documentation Programmation Concurrente et Interfaces Interactives 2020-2021</title>
+    <link rel="stylesheet" href="Soutenances%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/classic.css" type="text/css">
+    <link rel="stylesheet" href="Soutenances%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/pygments.css" type="text/css">
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="Soutenances%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/documentation_options.js"></script>
+    <script type="text/javascript" src="Soutenances%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/jquery.js"></script>
+    <script type="text/javascript" src="Soutenances%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/underscore.js"></script>
+    <script type="text/javascript" src="Soutenances%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/doctools.js"></script>
+    <script type="text/javascript" src="Soutenances%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/language_data.js"></script>
+    <script type="text/javascript" src="Soutenances%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/translations.js"></script>
+    <script async="async" type="text/javascript" src="Soutenances%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/latest.js"></script>
+    
+    <link rel="index" title="Index" href="https://perso.limsi.fr/sabouret/cours/pcii/genindex.html">
+    <link rel="search" title="Recherche" href="https://perso.limsi.fr/sabouret/cours/pcii/search.html">
+    <link rel="next" title="Annexe : structure d’un rapport de projet" href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html">
+    <link rel="prev" title="Deuxième partie – projet" href="https://perso.limsi.fr/sabouret/cours/pcii/projet.html"> 
+  <script type="text/javascript" async="" src="Soutenances%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body><div id="MathJax_Message" style="display: none;"></div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html" title="Annexe : structure d’un rapport de projet" accesskey="N">suivant</a> |</li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/projet.html" title="Deuxième partie – projet" accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="https://perso.limsi.fr/sabouret/cours/pcii/index.html">Documentation Programmation Concurrente et Interfaces Interactives 2020-2021</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="soutenances">
+<span id="soutenance"></span><h1>Soutenances<a class="headerlink" href="#soutenances" title="Lien permanent vers ce titre">¶</a></h1>
+<ul class="simple">
+<li>Sauf restriction sanitaire, les soutenances se dérouleront dans la salle <strong>E204</strong>
+ au bâtiment 640 (PUIO) le lundi 11 avril 2022, de 14h à 17h. Vous 
+trouverez ci-dessous les horaires de passage de chaque groupe. <em>En cas de difficulté, merci de nous en informer au plus vite</em>.</li>
+<li>La soutenance se déroule en deux temps : le groupe fait une 
+présentation de son travail en 10 minutes, puis les enseignants posent 
+des questions pendant 5 à 10 minutes.</li>
+<li>Nos questions pourront porter aussi bien sur la présentation que sur le code ou le rapport</li>
+<li><strong>Attention</strong>: vous devez nous envoyer votre rapport et votre code source <strong>au plus tard jeudi 10 avril à 23:59</strong> par email (un lien dans le mail est évidemment accepté).</li>
+</ul>
+<div class="section" id="conseils-pour-les-transparents">
+<h2>Conseils pour les transparents<a class="headerlink" href="#conseils-pour-les-transparents" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Votre présentation doit permettre de comprendre en dix minutes :</p>
+<ul class="simple">
+<li>Ce qui a été fait : quel était l’objectif, quels sont les choix que 
+vous avez faits, quelles sont les limites, qui a travaillé sur quelle 
+partie.</li>
+<li>En quoi c’est original, nouveau, difficile : pourquoi le jury devrait vous donner une bonne note.</li>
+</ul>
+<p>Voici un ensemble de conseils pour la préparation de votre support :</p>
+<ul>
+<li><p class="first">Préparez 6 ou 7 transparents maximum pour une 
+soutenance de 10 minutes comprenant une démo de votre travail : il faut 
+prévoir une idée par transparent et prévoir un rythme de un transparent 
+par minute.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Ne surchargez pas vos transparents : utilisez des 
+images plutôt que du texte. Les transparents sont un support de votre 
+discours, vous ne devez pas lire vos transparents.</p>
+</li>
+<li><p class="first">Ne faites pas des transparents top minimalistes non
+ plus : une image par transparent sans rien d’autre. Il faut que les 
+transparents soient un support utile.</p>
+</li>
+<li><p class="first">N’abusez pas des animations : 80% d’entre elles sont superflues, cassent votre discours et vous font perdre l’attention du jury.</p>
+</li>
+<li><p class="first">Quelques idées de « support utile » :</p>
+<blockquote>
+<div><ul class="simple">
+<li>une copie d’écran au début pour expliquer le principe du jeu, avec 
+des éléments de textes pour mettre en avant les fonctionnalités 
+originales de votre projet</li>
+<li>un diagramme de classe simplifié et lisible (ou schéma de conception générale) pour expliquer l’architecture de votre travail</li>
+<li>un diagramme de Gantt simplifié pour expliquer qui s’est occupé de quoi</li>
+<li>Ne mettez pas de code sur les transparents et évitez tout ce qui est trop petit et illisible. Utilisez une grosse police.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>N’oubliez pas de mettre en avant l’originalité de votre projet et son
+ intérêt en terme de programmation concurrente et/ou d’interface 
+interactive…</p>
+</div></blockquote>
+</li>
+<li><p class="first">Répartissez-vous le temps de parole dans le groupe :
+ tout le monde doit parler ! Pensez à valoriser le travail de chaque 
+membre du groupe.</p>
+</li>
+<li><p class="first">Pensez à mettre en avant les difficultés que vous 
+avez résolues. Montrez que vous avez accompli quelque chose de difficile
+ et d’ambitieux. Ne cachez pas les difficultés ni les éventuelles 
+limites ou échecs dans votre projet, mais <strong>positivez</strong>!</p>
+<blockquote>
+<div><ul class="simple">
+<li>« <em>Nous n’avons pas réussi à faire cela mais à la place nous avons fait ceci</em> »</li>
+<li>« <em>Nous avons passé beaucoup de temps sur cette fonctionnalité 
+qui nous semblait simple mais nous avons appris beaucoup et en plus ça 
+marche</em> »</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">N’oubliez pas la conclusion (avec quelques pistes de réflexion personnelle)</p>
+</li>
+<li><p class="first">Répétez votre discours ensemble, plusieurs fois avant la soutenance (pas juste le matin)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Préparez et répétez à l’avance votre démonstration : vous ne disposez que de quelques minutes!</li>
+<li>Ne débordez pas : nous devrons vous couper et vous ne pourrez pas être évalués correctement</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>N’hésitez pas à envoyer à vos encadrants une version préliminaire de vos transparents pendant la semaine du 4 avril</strong>. Ils pourront vous aider à l’améliorer en vue de la soutenance.</p>
+</div>
+<div class="section" id="planning-des-soutenances">
+<h2>Planning des soutenances<a class="headerlink" href="#planning-des-soutenances" title="Lien permanent vers ce titre">¶</a></h2>
+<p>14:00 - Groupe 8 : Ahmed BAAROUN, Gabriel BECQUET, Clément SUDRES</p>
+<p>14:20 - Groupe 6 : Mohamed BADRI, Michael MOTA, Mahdi RANJBAR, Clément SUDRES</p>
+<p>14:40 - Groupe 2 : Julien BERRY, Colin BLAKE, Mayeul HOSPITAL</p>
+<p>15:00 - pause de 10 minutes</p>
+<p>15:10 - Groupe 4 : Antonin BOYON, Émeric DEDRY, Yoann MERAND, Noor TAOUD</p>
+<p>15:30 - Groupe 7 : Thomas COMBEAU, Chalies LASLUISA NUNEZ, Arsène SIVACOUMAR</p>
+<p>15:50 - Groupe 1 : Thomas DELEPINE, Alexis DELPLACE et Jacobo RUIZ</p>
+<p>16:10 - pause de 10 minutes</p>
+<p>16:20 - Groupe 3 : Nicolas GRAVERET, Samuel MONSINJON, Baptiste SOULLARD</p>
+<p>16:40 - Groupe 5 : Noëmie HANUS, Paul HERCOUET, Brice POINTAL, Hoël ROQUINARC’H</p>
+<p>17:00 - Groupe 9 : Thomas JAROSSAY, Yassine MSILINI, Lina TAGUENGAYTE, Mickail YILMAZ</p>
+<p>17:20 - Délibération du jury</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="https://perso.limsi.fr/sabouret/cours/pcii/index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/tutoriel.html">Première partie – tutoriel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/projet.html">Deuxième partie – projet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Soutenances</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#conseils-pour-les-transparents">Conseils pour les transparents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#planning-des-soutenances">Planning des soutenances</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html">Annexe : structure d’un rapport de projet</a></li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="https://perso.limsi.fr/sabouret/cours/pcii/projet.html" title="Chapitre précédent">Deuxième partie – projet</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html" title="Chapitre suivant">Annexe : structure d’un rapport de projet</a></p>
+<div id="searchbox" style="" role="search">
+  <h3>Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/genindex.html" title="Index général">index</a></li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html" title="Annexe : structure d’un rapport de projet">suivant</a> |</li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/projet.html" title="Deuxième partie – projet">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="https://perso.limsi.fr/sabouret/cours/pcii/index.html">Documentation Programmation Concurrente et Interfaces Interactives 2020-2021</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        © Copyright 2019-2021, Nicolas Sabouret.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  
+</body></html>

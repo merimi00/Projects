@@ -1,0 +1,1113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Première partie – tutoriel — Documentation Programmation Concurrente et Interfaces Interactives 2020-2021</title>
+    <link rel="stylesheet" href="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/classic.css" type="text/css">
+    <link rel="stylesheet" href="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/pygments.css" type="text/css">
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/documentation_options.js"></script>
+    <script type="text/javascript" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/jquery.js"></script>
+    <script type="text/javascript" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/underscore.js"></script>
+    <script type="text/javascript" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/doctools.js"></script>
+    <script type="text/javascript" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/language_data.js"></script>
+    <script type="text/javascript" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/translations.js"></script>
+    <script async="async" type="text/javascript" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/latest.js"></script>
+    
+    <link rel="index" title="Index" href="https://perso.limsi.fr/sabouret/cours/pcii/genindex.html">
+    <link rel="search" title="Recherche" href="https://perso.limsi.fr/sabouret/cours/pcii/search.html">
+    <link rel="next" title="Deuxième partie – projet" href="https://perso.limsi.fr/sabouret/cours/pcii/projet.html">
+    <link rel="prev" title="Introduction" href="https://perso.limsi.fr/sabouret/cours/pcii/intro.html"> 
+  <script type="text/javascript" async="" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body><div id="MathJax_Message" style="display: none;"></div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/projet.html" title="Deuxième partie – projet" accesskey="N">suivant</a> |</li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/intro.html" title="Introduction" accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="https://perso.limsi.fr/sabouret/cours/pcii/index.html">Documentation Programmation Concurrente et Interfaces Interactives 2020-2021</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="premiere-partie-tutoriel">
+<h1>Première partie – tutoriel<a class="headerlink" href="#premiere-partie-tutoriel" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Dans un premier temps, nous allons réaliser un mini-projet pour nous 
+familiariser avec les éléments importants de PCII. Ce mini-projet 
+s’inspire d’un jeu assez populaire sur smartphone et tablette: <em>Flappy bird</em>.
+ Le but de ce jeu est de mener un oiseau le plus loin possible dans un 
+parcours d’obstacle. La seule action consiste à tapoter sur l’écran pour
+ faire voler l’oiseau.</p>
+<a class="reference internal image-reference" href="https://perso.limsi.fr/sabouret/cours/pcii/_images/flappy.png"><img alt="_images/flappy.png" class="align-center" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/flappy.png" style="width: 400px;"></a>
+<p>Nous allons implémenter une version très simplifiée de Flappy Bird 
+dans laquelle un anneau se déplace le long d’un fil (à la manière du jeu
+ <em>Ketchapp Circle</em>) et nous ajouterons des éléments de décors animé. Ce tutoriel occupera les trois premières séances.</p>
+<p><strong>Attention:</strong> L’objectif du tutoriel n’est pas 
+uniquement de vous apprendre à programmer des interfaces et des threads 
+en Java. Il s’agit aussi et surtout de vous présenter la structure d’un 
+rapport de projet (ou documentation) comme vous devrez le faire pour 
+votre propre projet dans la deuxième partie. <strong>Vous serez donc noté avant tout sur la qualité de votre rapport !</strong></p>
+<p>Chaque séance se déroule en <strong>2h tutorées</strong>, où nous nous concentrerons sur le développement et l’acquisition des connaissances en Java, et <strong>1h30 de travail personnel</strong>
+ où vous devrez faire le travail de documentation (et éventuellement 
+terminer l’implémentation si vous n’avez pas eu le temps de terminer 
+pendant la séance).</p>
+<div class="section" id="premiere-seance-interface-interactive">
+<h2>Première séance : interface interactive<a class="headerlink" href="#premiere-seance-interface-interactive" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="bibliotheque-swing">
+<h3>Bibliothèque Swing<a class="headerlink" href="#bibliotheque-swing" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La bibliothèque (ou <em>API Java</em>) que nous utiliserons pour programmer notre interface graphique est l”<strong>API Swing</strong>. Il s’agit d’un ensemble de classes qui permettent de définir les <strong>composants graphiques</strong> d’une interface ainsi que le comportement du programme face aux <strong>événements</strong> interactifs. Certaines classes utilisées par Swing sont dans l’API graphique de base de Java, <strong>AWT</strong>. Vous aurez donc à utiliser des paquets et des classes de ces deux API.</p>
+<div class="section" id="exercice-1">
+<h4>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Créez un nouveau projet dans votre IDE Java et écrivez une classe principale (par exemple <code class="docutils literal notranslate"><span class="pre">Main.java</span></code>) avec la fonction <code class="docutils literal notranslate"><span class="pre">main</span></code> habituelle.</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">Main</span> <span class="p">{</span>
+  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span> <span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="zone-d-affichage-jpanel">
+<h3>Zone d’affichage: <code class="docutils literal notranslate"><span class="pre">JPanel</span></code><a class="headerlink" href="#zone-d-affichage-jpanel" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En Java Swing, le composant graphique de base est défini dans la classe <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>. Nous allons utiliser une instance de cette classe pour <strong>dessiner</strong> notre interface et l’animer au fur et à mesure du jeu.</p>
+<p>Le composant doit ensuite être intégré dans une fenêtre graphique qui
+ sera affichée à l’écran. La classe qui implémente une fenêtre en Swing 
+est la classe <code class="docutils literal notranslate"><span class="pre">JFrame</span></code>.
+ Il suffit donc de créer une instance de cette classe et d’y ajouter le 
+composant graphique, à l’aide des instructions suivantes:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JFrame</span> <span class="n">fenetre</span> <span class="o">=</span> <span class="n">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s2">"titre de la fenêtre"</span><span class="p">);</span>
+<span class="n">fenetre</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">composant</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Une fois que la fenêtre est créée et que les composants ont été ajoutés, il faut l’assembler et la rendre visible :</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fenetre</span><span class="o">.</span><span class="n">pack</span><span class="p">();</span>
+<span class="n">fenetre</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Enfin, il est d’usage de définir le comportement de la fenêtre face à l’événement « fermer » du shell graphique. Par exemple :</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fenetre</span><span class="o">.</span><span class="n">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="o">.</span><span class="n">EXIT_ON_CLOSE</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="exercice-2">
+<h4>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Écrivez une classe ou un ensemble de méthodes qui permet de créer une fenêtre pour y ajouter un composant.</p>
+</div>
+</div>
+<div class="section" id="utilisation-du-jpanel">
+<h3>Utilisation du JPanel<a class="headerlink" href="#utilisation-du-jpanel" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour utiliser un <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>, nous devons faire trois choses :</p>
+<ol class="arabic simple">
+<li>Définir ses dimensions (largeur et hauteur) ;</li>
+<li>Définir ce qui doit y être dessiné ;</li>
+<li>L’ajouter à une fenêtre (ou à un autre composant).</li>
+</ol>
+<p>La dimension d’un JPanel se définit à l’aide de la méthode <code class="docutils literal notranslate"><span class="pre">setPreferredSize</span></code> et la classe <code class="docutils literal notranslate"><span class="pre">Dimension</span></code> :</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">panel</span><span class="o">.</span><span class="n">setPreferredSize</span><span class="p">(</span><span class="n">new</span> <span class="n">Dimension</span><span class="p">(</span><span class="n">largeur</span><span class="p">,</span> <span class="n">hauteur</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="section" id="exercice-3">
+<h4>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">¶</a></h4>
+<ol class="arabic simple">
+<li>Écrivez une classe <code class="docutils literal notranslate"><span class="pre">Affichage</span></code> qui hérite de la classe <code class="docutils literal notranslate"><span class="pre">JPanel</span></code> (une instance de <code class="docutils literal notranslate"><span class="pre">Affichage</span></code> est donc aussi un <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>).</li>
+<li>Définissez des constantes (<code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">final</span></code>) pour les dimensions du composant au début de votre classe.</li>
+<li>Dans le constructeur de la classe, fixez les dimensions du composant en utilisant les constantes.</li>
+<li>Créez une instance de ce composant et ajoutez-la dans votre fenêtre.</li>
+<li>Testez votre code. Vous devez voir apparaître une fenêtre.</li>
+</ol>
+</div>
+<div class="section" id="correction">
+<h4>Correction<a class="headerlink" href="#correction" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Voici une correction possible:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.awt.Dimension</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">Affichage</span> <span class="n">extends</span> <span class="n">JPanel</span> <span class="p">{</span>
+
+        <span class="o">/*</span> <span class="n">Constantes</span> <span class="o">*/</span>
+        <span class="n">public</span> <span class="n">static</span> <span class="n">final</span> <span class="nb">int</span> <span class="n">LARG</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
+        <span class="n">public</span> <span class="n">static</span> <span class="n">final</span> <span class="nb">int</span> <span class="n">HAUT</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+
+        <span class="o">/**</span> <span class="n">Constructeur</span> <span class="o">*/</span>
+        <span class="n">public</span> <span class="n">Affichage</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setPreferredSize</span><span class="p">(</span><span class="n">new</span> <span class="n">Dimension</span><span class="p">(</span><span class="n">LARG</span><span class="p">,</span> <span class="n">HAUT</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span> <span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">JFrame</span> <span class="n">test</span> <span class="o">=</span> <span class="n">new</span> <span class="n">JFrame</span><span class="p">(</span><span class="s2">"Test dessin"</span><span class="p">);</span>
+                <span class="n">test</span><span class="o">.</span><span class="n">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="o">.</span><span class="n">EXIT_ON_CLOSE</span><span class="p">);</span>
+                <span class="n">test</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new</span> <span class="n">Affichage</span><span class="p">());</span>
+                <span class="n">test</span><span class="o">.</span><span class="n">pack</span><span class="p">();</span>
+                <span class="n">test</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Nous vous recommandons plutôt d’écrire deux classes séparées !</p>
+</div>
+</div>
+<div class="section" id="dessin-dans-un-jpanel-classe-graphics">
+<h3>Dessin dans un <code class="docutils literal notranslate"><span class="pre">JPanel</span></code> : classe <code class="docutils literal notranslate"><span class="pre">Graphics</span></code><a class="headerlink" href="#dessin-dans-un-jpanel-classe-graphics" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour dessiner dans un <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>, il faut redéfinir la méthode <code class="docutils literal notranslate"><span class="pre">paint</span></code>
+ de la classe. En effet, le système d’exploitation appelle cette méthode
+ à chaque fois qu’il a besoin de mettre à jour l’affichage. Vous devez 
+donc ajouter la méthode suivante dans votre classe <code class="docutils literal notranslate"><span class="pre">Affichage</span></code>:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">paint</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>L’objet graphique dans lequel se fait le dessin, ici <code class="docutils literal notranslate"><span class="pre">g</span></code>, est une intance de la classe <code class="docutils literal notranslate"><span class="pre">java.awt.Graphics</span></code>, qui définit un ensemble de méthode utiles pour dessiner des éléments dans le <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>. Pour préparer les séances suivantes, nous vous invitons à regarder <a class="reference external" href="https://docs.oracle.com/en/java/javase/13/docs/api/java.desktop/java/awt/Graphics.html">la documentation de cette classe</a> d’ici la prochaine fois.</p>
+<div class="section" id="exercice-4">
+<h4>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">¶</a></h4>
+<p>En utilisant la méthode <code class="docutils literal notranslate"><span class="pre">drawOval</span></code> de la classe <code class="docutils literal notranslate"><span class="pre">Graphics</span></code>,
+ dessinez un ovale noir dans votre affichage. Les dimensions de l’objet 
+(coordonnées du centre, largeur et hauteur de l’ellipse) doivent être 
+définies dans des constantes au début de la classe.</p>
+<p>Vous devez obtenir une fenêtre qui ressemble à ceci:</p>
+<a class="reference internal image-reference" href="https://perso.limsi.fr/sabouret/cours/pcii/_images/quickflappy1.png"><img alt="_images/quickflappy1.png" class="align-center" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/quickflappy1.png" style="width: 400px;"></a>
+<p>Bravo, vous avez implémenté une premier interface graphique… non-interactive !</p>
+</div>
+</div>
+<div class="section" id="un-peu-d-interaction">
+<h3>Un peu d’interaction<a class="headerlink" href="#un-peu-d-interaction" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le jeu <em>Flappy Bird</em>, chaque fois que le joueur tapote 
+l’écran, l’oiseau bat des ailes et reprend de la hauteur. Nous allons 
+reproduire ce mécanisme dans ce tutoriel.</p>
+<p>Pour réagir aux actions de l’utilisateur, les interfaces graphiques utilisent la <strong>programmation événementielle</strong>.
+ Le principe est simple: chaque événement (clavier, souris, etc) dont le
+ système d’exploitation est informé peut être retransmis au programme 
+pour qu’il puisse y réagir. En Java, cela se fait à l’aide des classes 
+du package <code class="docutils literal notranslate"><span class="pre">java.awt.event</span></code>.</p>
+<p>Comme vous pouvez le voir en examinant la <a class="reference external" href="https://docs.oracle.com/en/java/javase/13/docs/api/java.desktop/java/awt/event/package-summary.html">liste des classes du package</a>, il existe autant d’événements que de types d’interaction: <code class="docutils literal notranslate"><span class="pre">ActionEvent</span></code>, <code class="docutils literal notranslate"><span class="pre">AdjustmentEvent</span></code>, <code class="docutils literal notranslate"><span class="pre">ComponentEvent</span></code>, <code class="docutils literal notranslate"><span class="pre">ContainerEvent</span></code>, <code class="docutils literal notranslate"><span class="pre">FocusEvent</span></code>, etc.</p>
+<p>Le principe est très simple: tout programme qui souhaite traiter un 
+type d’événement (par exemple, vous voulez être informé lorsque 
+l’utilisateur clique sur un bouton de l’interface) doit se déclarer 
+comme <em>listener</em> pour ce type d’événement (dans notre exemple, il s’agit d’un <code class="docutils literal notranslate"><span class="pre">ActionEvent</span></code> : il faut donc se déclarer <code class="docutils literal notranslate"><span class="pre">ActionListener</span></code>)
+ auprès du composant source de l’événement (dans notre exemple, le 
+bouton). Ainsi, chaque fois que le système d’exploitation repère un 
+événement, le composant concerné préviendra tous les <em>listeners</em> qui se sont déclarés intéressés.</p>
+<p>Se déclarer <em>listener</em> pour un type d’événement consiste à 
+implémenter l’interface Java associée, c’est-à-dire à instancier une ou 
+plusieurs méthodes abstraites qui définiront le comportement à adopter. 
+L’exemple canonique est celui du bouton:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ReagirBouton</span> <span class="n">implements</span> <span class="n">ActionListener</span> <span class="p">{</span>
+  <span class="nd">@Override</span>
+  <span class="n">public</span> <span class="n">void</span> <span class="n">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">...</span> <span class="n">réagir</span> <span class="o">...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">InterfaceGraphique</span> <span class="p">{</span>
+  <span class="o">...</span>
+  <span class="n">bouton</span><span class="o">.</span><span class="n">addActionListener</span><span class="p">(</span><span class="n">new</span> <span class="n">ReagirBouton</span><span class="p">());</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pour plus d’information, vous pouvez vous référez au tutoriel Oracle en ligne : <a class="reference external" href="https://docs.oracle.com/javase/tutorial/uiswing/events/intro.html">https://docs.oracle.com/javase/tutorial/uiswing/events/intro.html</a>
+Nous vous invitons à le regarder d’ici la prochaine séance.</p>
+<div class="section" id="utilisation">
+<h4>Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Dans notre cas, nous voulons réagir à un événement souris : chaque 
+fois que l’utilisateur clique avec la souris, nous ferons monter notre 
+ovale de quelques pixels. Nous allons pour cela utiliser les événements <code class="docutils literal notranslate"><span class="pre">MouseEvent</span></code> et les <em>listeners</em> <code class="docutils literal notranslate"><span class="pre">MouseListener</span></code>. La méthode qui nous intéresse dans l’interface <code class="docutils literal notranslate"><span class="pre">MouseListener</span></code> est la méthode <code class="docutils literal notranslate"><span class="pre">mouseClicked</span></code> qui est appelée chaque fois que l’utilisateur clique dans la zone d’affichage.</p>
+</div>
+<div class="section" id="exercice-5">
+<h4>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Modifiez votre classe <code class="docutils literal notranslate"><span class="pre">Affichage</span></code> pour Dans votre code précédent, définissez un attribut <code class="docutils literal notranslate"><span class="pre">hauteur</span></code> dont la valeur initiale est la position en <code class="docutils literal notranslate"><span class="pre">y</span></code>
+ que vous avez choisie pour le centre de votre ovale noir. Ajoutez un 
+mécanisme de programmation événementielle pour modifier la valeur de 
+votre attribut de quelques pixels vers le haut.</p>
+<p><strong>Recommandations :</strong></p>
+<ul class="simple">
+<li>Pensez à définir la taille du «&nbsp;saut&nbsp;» comme une constante de votre classe ;</li>
+<li>Pour que le système d’exploitation informe la carte graphique qu’il faut redessiner l’affichage, utilisez la méthode <code class="docutils literal notranslate"><span class="pre">repaint</span></code> (héritée de <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>) ;</li>
+<li>La méthode <code class="docutils literal notranslate"><span class="pre">paint</span></code> de la classe <code class="docutils literal notranslate"><span class="pre">JPanel</span></code> nettoie la zone d’affichage. Pensez à l’appeler au début de votre propre méthode <code class="docutils literal notranslate"><span class="pre">paint</span></code> à l’aide de l’instruction <code class="docutils literal notranslate"><span class="pre">super.paint(g)</span></code> ;</li>
+<li>Pour améliorer les performances de votre dessin, vous pouvez définir
+ la zone d’invalidité dans l’interface en passant les arguments à la 
+méthode <code class="docutils literal notranslate"><span class="pre">repaint</span></code> : cela évite que toute la fenêtre soit redessinée à chaque pas de temps !</li>
+</ul>
+<p><strong>Attention !</strong> Vous devez systématiquement tester votre
+ programme. Ne passez pas à la suite tant que votre programme actuel ne 
+fonctionne pas !</p>
+</div>
+</div>
+<div class="section" id="le-modele-mvc">
+<h3>Le modèle MVC<a class="headerlink" href="#le-modele-mvc" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le développement d’interfaces graphiques en Java a vite fait de se 
+transformer en un ensemble de classes assez anarchiques dont on ne sait 
+plus qui fait quoi ni comment. Pour prévenir ce genre de désastres, le 
+génie logiciel proposer des <em>motifs de conception</em> (ou <em>design patterns</em> en anglais) qui permettent de bien structurer son code, en séparant les problèmes et les fonctionnalités.</p>
+<p>Pour les interfaces graphique, le motif qui fait autorité est le <strong>motif MVC</strong> pour <strong>Modèle</strong>, <strong>Vue</strong>, <strong>Contrôleur</strong>.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="https://perso.limsi.fr/sabouret/cours/pcii/_images/ModeleMVC.png"><img alt="_images/ModeleMVC.png" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/ModeleMVC.png" style="width: 500px;"></a>
+<p class="caption"><span class="caption-text">Le motif MVC (<em>source : Wikimedia</em>)</span></p>
+</div>
+<p>Le principe de ce motif est de séparer le code de votre interface graphique en trois parties :</p>
+<ul>
+<li><p class="first">Le <strong>Modèle</strong> définit l’ensemble des 
+données qui caractérisent l’état de votre interface. La modification de 
+ces données correspond à un changement de l’affichage dans l’interface 
+graphique.</p>
+<p>Dans notre exemple, c’est la variable <code class="docutils literal notranslate"><span class="pre">hauteur</span></code> : elle est modifiée chaque fois que vous cliquez sur l’image et cela provoque une modification de l’affichage.</p>
+</li>
+<li><p class="first">La <strong>Vue</strong> définit l’affichage: comment l’état du modèle est rendu visible à l’utilisateur.</p>
+<p>Dans notre exemple, c’est la classe <code class="docutils literal notranslate"><span class="pre">Affichage</span></code> avec sa fonction <code class="docutils literal notranslate"><span class="pre">paint</span></code> redéfinie depuis la classe <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>.</p>
+</li>
+<li><p class="first">Le <strong>Contrôleur</strong> définit la manière 
+dont l’état du modèle change : c’est ce qui fait le lien entre votre 
+interface graphique et le reste du monde. Il effectue les changements 
+dans le modèle et informe la vue d’un changement. Lorsque l’interface 
+est interactive, c’est aussi lui qui gère les événements.</p>
+<p>Dans notre exemple, c’est la classe qui implémente le <code class="docutils literal notranslate"><span class="pre">MouseListener</span></code>.</p>
+</li>
+</ul>
+<p>Nous allons programmer notre interface en utilisant le motif MVC.</p>
+<div class="section" id="exercice-6">
+<h4>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">¶</a></h4>
+<ol class="arabic">
+<li><p class="first">Vous devez implémenter quatre classes:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Affichage</span></code> pour la vue;</li>
+<li><code class="docutils literal notranslate"><span class="pre">Etat</span></code> pour le modèle;</li>
+<li><code class="docutils literal notranslate"><span class="pre">Control</span></code> pour le controleur;</li>
+<li><code class="docutils literal notranslate"><span class="pre">Main</span></code> pour lancer le le programme.</li>
+</ul>
+</li>
+<li><p class="first">La classe <code class="docutils literal notranslate"><span class="pre">Etat</span></code> définit une variable <code class="docutils literal notranslate"><span class="pre">hauteur</span></code> ainsi qu’une méthode d’accès <code class="docutils literal notranslate"><span class="pre">getHauteur</span></code> et une méthode de modification <code class="docutils literal notranslate"><span class="pre">jump</span></code>. Cette dernière permet d’augmenter la valeur de la hauteur, tout en restant bornée par les dimensions définies dans la classe <code class="docutils literal notranslate"><span class="pre">Affichage</span></code>.</p>
+</li>
+<li><p class="first">La classe <code class="docutils literal notranslate"><span class="pre">Affichage</span></code> hérite de <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>. Elle dispose d’un attribut de type <code class="docutils literal notranslate"><span class="pre">Etat</span></code> pour accéder à l’état du modèle lorsque l’affichage doit être revu, via la méthode <code class="docutils literal notranslate"><span class="pre">paint</span></code>.
+ Elle dispose aussi de l’ensemble des constantes liées à l’interface 
+graphique (taille de la fenêtre, dimensions des objets à dessiner, etc).</p>
+</li>
+<li><p class="first">La classe <code class="docutils literal notranslate"><span class="pre">Control</span></code> implémente un (ou plusieurs) <em>listeners</em> (dans notre cas, le <em>listener</em> <code class="docutils literal notranslate"><span class="pre">MouseListener</span></code>). Ce <em>listener</em> fait appels à la méthode <code class="docutils literal notranslate"><span class="pre">jump</span></code> de la classe <code class="docutils literal notranslate"><span class="pre">Etat</span></code>
+ pour modifier les variables du modèle. Ensuite, il informe la vue d’un 
+changement (par exemple en utilisant directement la méthode <code class="docutils literal notranslate"><span class="pre">repaint</span></code> de la classe <code class="docutils literal notranslate"><span class="pre">Affichage</span></code>). Cette classe dispose donc a minima d’un attribut de type <code class="docutils literal notranslate"><span class="pre">Etat</span></code> et d’un autre de type <code class="docutils literal notranslate"><span class="pre">Affichage</span></code>.</p>
+<p>Pour simplifier l’écriture de la classe <code class="docutils literal notranslate"><span class="pre">Control</span></code>, vous pouvez aussi utiliser la classe abstraite <code class="docutils literal notranslate"><span class="pre">MouseControler</span></code> dans laquelle toutes les méthodes du <em>listener</em> sont déjà implémentées et ne font rien.</p>
+</li>
+<li><p class="first">La classe <code class="docutils literal notranslate"><span class="pre">Main</span></code> construit un objet de chaque classe (modèle, vue et contrôleur), les relie ensemble, puis elle crée un objet <code class="docutils literal notranslate"><span class="pre">JFrame</span></code> dans laquelle elle ajoute la vue.</p>
+</li>
+</ol>
+<p>Il s’agit juste de déplacer des bouts de code écrits jusqu’à 
+maintenant, mais cela peut prendre du temps. Si vous avez pris du 
+retard, vous ferez cet exercice avant la prochaine séance: vous devez 
+venir la prochaine avec un projet qui respecte le motif MVC !</p>
+</div>
+<div class="section" id="remarque">
+<h4>Remarque<a class="headerlink" href="#remarque" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Dès que le programme devient plus important, l’ensemble de 
+l’affichage ne peut plus être défini dans une seule classe. C’est 
+presque le cas dans notre programme puisque la <code class="docutils literal notranslate"><span class="pre">JFrame</span></code> devrait être définie dans une autre classe (par exemple <code class="docutils literal notranslate"><span class="pre">FenetrePrincipale</span></code>). Dans ce cas, il est d’usage de définir trois (ou plus) <code class="docutils literal notranslate"><span class="pre">package</span></code> Java: <code class="docutils literal notranslate"><span class="pre">model</span></code>, <code class="docutils literal notranslate"><span class="pre">view</span></code> et <code class="docutils literal notranslate"><span class="pre">control</span></code> contenant chacun les classes correspondantes.</p>
+<p>Nous vous recommandons de modifier votre architecture de projet pour refléter cette séparation.</p>
+<p><strong>Attention !</strong> Testez votre programme ! Vous venez de faire de nombreux changements, assurez-vous de n’avoir rien cassé !</p>
+</div>
+</div>
+<div class="section" id="commentaires">
+<h3>Commentaires<a class="headerlink" href="#commentaires" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Ah… les commentaires ! De nombreux programmeurs débutants considèrent
+ que c’est une perte de temps, ou qu’ils le feront plus tard (ce qui 
+n’arrive jamais). Pourtant, tous les projets sérieux sont constitués à 
+60% de commentaires pour seulement 40% de code utile. Regardez le code 
+source du noyau Linux par exemple !</p>
+<p>Nous ne le dirons jamais assez, il est <strong>extrêmement important</strong>
+ d’utiliser les commentaires dans votre code à bon escient, et les 
+langages modernes comme Java vous y aident avec des outils intégrés, 
+comme Javadoc.</p>
+<p>Vous trouverez les spécifications complètes de Javadoc sur le site 
+d’Oracle, mais nous vous invitons à regarder surtout les recommandations
+ sur : <a class="reference external" href="https://www.oracle.com/technetwork/articles/java/index-137868.html">https://www.oracle.com/technetwork/articles/java/index-137868.html</a></p>
+<p>Pour faire simple, l’écriture de la Javadoc se fait en utilisant du texte entre <code class="docutils literal notranslate"><span class="pre">/**</span></code> et <code class="docutils literal notranslate"><span class="pre">*/</span></code>, avec éventuellement certains mots-clefs commençant par <code class="docutils literal notranslate"><span class="pre">@</span></code>.</p>
+<p>Voici quelques règles simples que vous devrez appliquer tout au long du projet:</p>
+<ol class="arabic">
+<li><p class="first">Munissez chaque classe d’une en-tête <code class="docutils literal notranslate"><span class="pre">/**</span> <span class="pre">...</span> <span class="pre">*/</span></code> qui explique, en quelques lignes, ce que fait à la classe et comment elle doit être utilisée</p>
+</li>
+<li><p class="first">Mettez un commentaire <code class="docutils literal notranslate"><span class="pre">/**</span> <span class="pre">...</span> <span class="pre">*/</span></code> devant chaque constante (vous <strong>devez</strong> utiliser des constantes)</p>
+</li>
+<li><p class="first">Mettez des commentaires simples <code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">...</span> <span class="pre">*/</span></code> ou <code class="docutils literal notranslate"><span class="pre">//</span></code> partout où c’est nécessaire : vous ne devez pas laisser plus de 5 lignes de code sans commentaire !</p>
+</li>
+<li><p class="first">Mettez une en-tête <code class="docutils literal notranslate"><span class="pre">/**</span> <span class="pre">...</span> <span class="pre">*/</span></code> devant chaque méthode, même très simple. Par exemple:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/**</span> <span class="n">affichage</span> <span class="o">*/</span>
+    <span class="nd">@Override</span>
+    <span class="n">public</span> <span class="n">void</span> <span class="n">paint</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Lorsque vous redéfinissez la méthode <code class="docutils literal notranslate"><span class="pre">paint</span></code> dans votre sous-classe de <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>.</p>
+</li>
+</ol>
+<div class="section" id="exercice-optionnel">
+<h4>Exercice (optionnel)<a class="headerlink" href="#exercice-optionnel" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Si vous ne l’avez pas déjà fait (c’est <em>mal</em>!), mettez des commentaires dans votre code avant la prochaine séance.</p>
+</div>
+</div>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans tout projet, la <em>documentation</em> du projet (c’est-à-dire 
+la description de ce qui est fait, pourquoi et comment) est au moins 
+aussi importante que le code lui-même. En effet, dès que le projet 
+devient un peu plus important (ce sera le cas dans la deuxième partie de
+ ce module), il est nécessaire de bien organiser l’ensemble de la 
+conception informatique, de documenter les fonctionnalités et de 
+s’assurer que tout le monde sait ce qu’il doit implémenter et comment.</p>
+<p>Vous devrez donc consacrer <strong>à chaque séance de travail</strong>
+ un temps important (entre 30 minutes et une heure) à la documentation 
+du projet. Cela fait partie des bonnes pratiques de projet qu’il vous 
+faut acquérir dans le cours de L3 PCII. Nous accorderons une importance 
+particulière qualité de cette documentation lors de l’évaluation de 
+votre projet : <strong>ne la négligez pas</strong>, c’est une part importante de votre note finale !</p>
+<p>Vous trouverez la structure type d’un rapport de projet sur la page suivante : <a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html#rapport"><span class="std std-ref">Annexe : structure d’un rapport de projet</span></a>. Nous vous invitons à la lire <strong>maintenant</strong>.</p>
+<p>Cette structure de documentation de projet (analyse fonctionnelle, plan de développement, conception) est un <strong>standard</strong>
+ dans le monde de l’ingénierie logicielle. Toutes les équipes 
+travaillent avec ce modèle en tête (appelé «&nbsp;modèle en V&nbsp;») et
+ suivent une méthodologie de conception qui respecte ces étapes, avec 
+différentes variantes.</p>
+<div class="section" id="cas-particulier-de-la-seance-1">
+<h4>Cas particulier de la séance 1<a class="headerlink" href="#cas-particulier-de-la-seance-1" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La stucture générale ci-dessous vous semble un peu abstraite. C’est 
+normal : au fur et à mesure du projet, et des retours que vous ferons 
+les enseignants à chaque séance sur votre rapport, vous arriverez à 
+mieux maîtriser son contenu.</p>
+<p>Pour la première séance, nous n’allons pas préparer un document de 20
+ pages, mais nous pouvons déjà mettre quelques éléments pour construire 
+une première version de votre rapport de 2 ou 3 pages environ. En vous 
+inspirant de ce qui est écrit ci-dessous, préparez votre premier rapport
+ de séance :</p>
+<ol class="arabic">
+<li><p class="first"><strong>Introduction</strong> (environ 1/2 page) : Quel est l’objectif du projet ?</p>
+<p>Nous voulons réaliser un mini-jeu inspiré de <em>flappy bird</em> 
+dans lequel un ovale se déplace le long d’une ligne brisée. Le but du 
+jeu est d’éviter que l’ovale sorte de la ligne. Pour cela, le joueur 
+peut cliquer sur l’écran pour faire monter l’ovale, qui redescend 
+ensuite tout seul. Voici à quoi pourrait ressembler l’interface 
+graphique de notre jeu:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="https://perso.limsi.fr/sabouret/cours/pcii/_images/quickflappy2.png"><img alt="_images/quickflappy2.png" class="align-center" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/quickflappy2.png" style="width: 400px;"></a>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Analyse globale</strong> (1/2 page)</p>
+<p>Il y a trois fonctionnalités principales: l’interface graphique avec 
+l’ovale et la ligne brisée, le défilement automatique de la ligne 
+brisée, la réaction de l’ovale aux clics de l’utilisateur</p>
+<p>Dans la première partie du projet (séance 1), nous nous intéressons uniquement à un sous-ensemble de fonctionnalités:</p>
+<ul class="simple">
+<li>création d’une fenêtre dans laquelle est dessiné l’ovale ;</li>
+<li>déplacement de l’ovale vers le haut lorsqu’on clique dans l’interface.</li>
+</ul>
+<p>Ces deux sous-fonctionnalités sont prioritaires et simples à réaliser.</p>
+</li>
+<li><p class="first"><strong>Plan de développement</strong> (1/2 page)</p>
+<ul class="simple">
+<li>Liste des tâches :<ul>
+<li>Analyse du problème (15 mn)</li>
+<li>Conception, développement et test d’un fenêtre avec un ovale (30 mn)</li>
+<li>Conception, développement et test du mécanisme de déplacement de l’ovale (45 mn)</li>
+<li>Acquisition de compétences en Swing (60 mn)</li>
+<li>Documentation du projet (60 mn)</li>
+</ul>
+</li>
+</ul>
+<p>S’ensuit un diagramme de Gantt de ces activités au cours de la séance
+ (vous êtes la seule ressource sur le diagramme de Gantt donc les tâches
+ ne peuvent pas se chevaucher, ce ne sera pas le cas pour le projet en 
+binôme).</p>
+<p>Évidemment, votre séance de 3h30 ne s’est pas déroulée comme cela : 
+vous avez lu le sujet, vous avez avancé au fur et à mesure, vous avez 
+découvert le modèle MVC après coup ce qui vous à amener à <em>refactorer</em>
+ votre code… Mais nous allons faire «&nbsp;comme si&nbsp;» pour cette 
+première séance, pour que vous produisiez une documentation de projet.</p>
+</li>
+<li><p class="first"><strong>Conception générale</strong> (moins d’1/2 page)</p>
+<p>Nous avons adopté le motif MVC pour le développement de notre 
+interface graphique. Vous devez montrer comment les deux fonctionnalités
+ rentrent dans ce motif!</p>
+</li>
+<li><p class="first"><strong>Conception détaillée</strong> (1/2 page à 1 page si vous êtes très bavard)</p>
+<ul>
+<li><p class="first">Pour la fenêtre avec un ovale, nous utilisons l’API Swing et la classe <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>. Nous définissons les dimensions de l’oval et de la fenêtre dans des constantes (listez-les…)</p>
+<p>Un diagramme à 2-3 classes serait le bienvenu ici.</p>
+</li>
+<li><p class="first">Pour le déplacement de l’ovale, nous utilisons la programmation événementielle avec la classe <code class="docutils literal notranslate"><span class="pre">MouseListener</span></code> et la hauteur est définie dans une constante.</p>
+<p>Et un deuxième diagramme de classes et tout le monde est content!</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Résultat</strong> (rien si vous avez déjà mis la copie d’écran dans l’introduction)</p>
+</li>
+<li><p class="first"><strong>Documentation utilisateur</strong> (quelques lignes)</p>
+<ul class="simple">
+<li>Prérequis : Java avec un IDE (ou Java tout seul si vous avez fait un export en <code class="docutils literal notranslate"><span class="pre">.jar</span></code> exécutable)</li>
+<li>Mode d’emploi (cas IDE) : Importez le projet dans votre IDE, 
+sélectionnez la classe Main à la racine du projet puis «&nbsp;Run as 
+Java Application&nbsp;». Cliquez sur la fenêtre pour faire monter 
+l’ovale.</li>
+<li>Mode d’emploi (cas <code class="docutils literal notranslate"><span class="pre">.jar</span></code> exécutable) : double-cliquez sur l’icône du fichier <code class="docutils literal notranslate"><span class="pre">.jar</span></code>. Cliquez sur la fenêtre pour faire monter l’ovale.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Documentation développeur</strong> (quelques lignes)</p>
+<p>Pour l’instant, il n’y a pas grand chose à dire : tout est dit avant.
+ Mais on peut préciser que les prochaines fonctionnalités seront la 
+création d’une ligne brisée et son déplacement automatique pour donner 
+l’impression que l’ovale avance le long de cette ligne.</p>
+</li>
+<li><p class="first"><strong>Conclusion et perspectives</strong> (quelques lignes)</p>
+<p>Ce que nous avons fait pour l’instant, ce qui était difficile mais 
+que nous avons super bien résolu, et ce qu’il reste à faire pour la 
+prochaine fois…</p>
+</li>
+</ol>
+</div>
+<div class="section" id="exercice-9">
+<h4>Exercice 9<a class="headerlink" href="#exercice-9" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Envoyez par email votre <em>code source</em> (sans les fichiers <code class="docutils literal notranslate"><span class="pre">.class</span></code>) et votre <em>rapport</em> à votre encadrant de TD pour qu’il puisse vous faire part de ses remarques lors de la prochaines séance.</p>
+</div>
+</div>
+<div class="section" id="fin-de-la-seance">
+<h3>Fin de la séance !<a class="headerlink" href="#fin-de-la-seance" title="Lien permanent vers ce titre">¶</a></h3>
+<a class="reference internal image-reference" href="https://perso.limsi.fr/sabouret/cours/pcii/_images/hourra.gif"><img alt="_images/hourra.gif" class="align-center" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/hourra.gif" style="width: 400px;"></a>
+<p>Si vous n’avez pas terminé votre travail (implémentation, lecture de 
+tutoriels en ligne ou production de la documentation de votre projet), 
+nous vous demandons de le terminer chez vous avant la prochaine séance. 
+Dans le cas contraire, la première séance est terminée et vous pourrez 
+continuer le projet la semaine prochaine !</p>
+</div>
+</div>
+<div class="section" id="deuxieme-seance-programmation-concurrente">
+<h2>Deuxième séance : programmation concurrente<a class="headerlink" href="#deuxieme-seance-programmation-concurrente" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="thread-java">
+<h3>Thread Java<a class="headerlink" href="#thread-java" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En informatique, un <em>thread</em> ou une <em>tâche</em> désigne un 
+ensemble d’instructions qui sont exécutés de manière entrelacée par le 
+processeur, sous le contrôle de l’ordonnanceur du système 
+d’exploitation, mais qui partagent la même mémoire virtuelle que le 
+processus qui les a créé (contrairement aux processus qui ont chacun 
+leur mémoire virtuelle). L’utilisation de <em>threads</em> permet de réaliser de la programmation concurrente, c’est-à-dire de donner l’impression qu’un programme effectue <strong>plusieurs choses en parallèle</strong>.</p>
+<p>En Java, un <em>thread</em> est une instance de la classe <code class="docutils literal notranslate"><span class="pre">Thread</span></code> dont la méthode <code class="docutils literal notranslate"><span class="pre">run</span></code> contient les instructions à exécuter. Le <em>thread</em> est démarré par l’appel à la méthode <code class="docutils literal notranslate"><span class="pre">start</span></code> et se termine lorsque la méthode <code class="docutils literal notranslate"><span class="pre">run</span></code> est terminée. Contrairement à un appel de méthode classique, la méthode <code class="docutils literal notranslate"><span class="pre">run</span></code> peut être interrompue par le processeur pour l’entrelacer avec l’exécution d’un autre <em>thread</em> ou d’un autre processus.</p>
+<p>Voici un exemple de programme simple avec deux <em>threads</em> :</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Tache</span> <span class="n">extends</span> <span class="n">Thread</span> <span class="p">{</span>
+  <span class="n">public</span> <span class="n">static</span> <span class="n">final</span> <span class="n">Random</span> <span class="n">rand</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Random</span><span class="p">();</span>
+
+  <span class="nd">@Override</span>
+  <span class="n">public</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"Tache "</span><span class="o">+</span><span class="n">getName</span><span class="p">()</span><span class="o">+</span><span class="s2">" étape "</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
+      <span class="k">try</span> <span class="p">{</span> <span class="n">Thread</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">rand</span><span class="o">.</span><span class="n">nextInt</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="o">+</span><span class="mi">100</span><span class="p">);</span> <span class="p">}</span>
+      <span class="n">catch</span> <span class="p">(</span><span class="ne">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span> <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">(</span><span class="n">new</span> <span class="n">Tache</span><span class="p">())</span><span class="o">.</span><span class="n">start</span><span class="p">();</span>
+    <span class="p">(</span><span class="n">new</span> <span class="n">Tache</span><span class="p">())</span><span class="o">.</span><span class="n">start</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Remarque :</strong> pour permettre le développement de <em>threads</em> dans une classe qui hériterait d’autre chose que <code class="docutils literal notranslate"><span class="pre">Thread</span></code>, il est possible de passer au constructeur de la classe <code class="docutils literal notranslate"><span class="pre">Thread</span></code> n’importe quel objet qui implémente l’interface <code class="docutils literal notranslate"><span class="pre">Runnable</span></code>, comme dans l’exemple ci-dessous :</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Nom</span> <span class="p">{</span>
+  <span class="nb">int</span> <span class="n">num</span><span class="p">;</span>
+  <span class="n">public</span> <span class="n">Nom</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nd">@Override</span>
+  <span class="n">public</span> <span class="n">String</span> <span class="n">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">"Tache "</span><span class="o">+</span><span class="n">String</span><span class="o">.</span><span class="n">valueOf</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Tache</span> <span class="n">extends</span> <span class="n">Nom</span> <span class="n">implements</span> <span class="n">Runnable</span> <span class="p">{</span>
+  <span class="n">public</span> <span class="n">static</span> <span class="n">final</span> <span class="n">Random</span> <span class="n">rand</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Random</span><span class="p">();</span>
+
+  <span class="n">public</span> <span class="n">Tache</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="n">public</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">this</span><span class="o">+</span><span class="s2">" étape "</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
+      <span class="k">try</span> <span class="p">{</span> <span class="n">Thread</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">rand</span><span class="o">.</span><span class="n">nextInt</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="o">+</span><span class="mi">100</span><span class="p">);</span> <span class="p">}</span>
+      <span class="n">catch</span> <span class="p">(</span><span class="ne">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span> <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">(</span><span class="n">new</span> <span class="n">Thread</span><span class="p">(</span><span class="n">new</span> <span class="n">Tache</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span><span class="o">.</span><span class="n">start</span><span class="p">();</span>
+    <span class="p">(</span><span class="n">new</span> <span class="n">Thread</span><span class="p">(</span><span class="n">new</span> <span class="n">Tache</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="o">.</span><span class="n">start</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dans cet exemple, la classe <code class="docutils literal notranslate"><span class="pre">Tache</span></code> hérite de la classe <code class="docutils literal notranslate"><span class="pre">Nom</span></code> tout en définissant une <code class="docutils literal notranslate"><span class="pre">Thread</span></code>.</p>
+</div>
+<div class="section" id="vole-vole-petit-oiseau">
+<h3>Vole, vole, petit oiseau!<a class="headerlink" href="#vole-vole-petit-oiseau" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En utilisant les <em>threads</em>, nous allons faire en sorte que 
+l’ovale perde de l’altitude lorsque l’utilisateur ne clique pas sur 
+l’écran, comme dans le jeu Flappy Bird.</p>
+<p><strong>Attention !</strong></p>
+<ol class="arabic">
+<li><p class="first">L’interface graphique est déjà un <em>thread</em> à part, dont le rôle est d’attendre les événements et d’y réagir. Lorsque vous programmez un autre <em>thread</em>, sont exécution sera entrelacée avec celle de l’interface. Cela signifie qu’il va falloir mettre en place des mécanismes de <strong>coordination</strong> pour la modification de la position de l’oiseau, qui peut provenir du <em>thread</em> de vol que nous allons programmer <strong>et</strong> du <em>thread</em> de l’interface graphique.</p>
+</li>
+<li><p class="first">Vous pourriez être tentés de tout programmer dans le <em>thread</em> de l’interface graphique: lors de chaque appel à la méthode <code class="docutils literal notranslate"><span class="pre">jump</span></code>, une boucle pourrait faire redescendre l’ovale étape par étape, avec des <code class="docutils literal notranslate"><span class="pre">Thread.sleep</span></code> à chaque tour de boucle, jusqu’à retomber à 0.</p>
+<p>Le problème de cette méthode est que votre programme ne rend pas la 
+main à l’interface: celle-ci reste bloquée dans l’exécution de la boucle
+ de vol et ne peut donc plus recevoir les événements… ni même mettre à 
+jour l’affichage ! C’est pour cela qu’il faut utiliser un autre <em>thread</em>.</p>
+</li>
+</ol>
+<div class="section" id="exercice-10">
+<h4>Exercice 10<a class="headerlink" href="#exercice-10" title="Lien permanent vers ce titre">¶</a></h4>
+<ol class="arabic">
+<li><p class="first">Modifiez votre classe <code class="docutils literal notranslate"><span class="pre">Etat</span></code> en ajoutant une méthode <code class="docutils literal notranslate"><span class="pre">moveDown</span></code>
+ qui permet de modifier la valeur de la hauteur de quelques pixels vers 
+le bas, sans sortir de la zone de dessin. Votre méthode doit aussi 
+appeler <code class="docutils literal notranslate"><span class="pre">repaint</span></code> (de préférence avec la zone d’invalidité) pour indiquer qu’il faut mettre à jour l’affichage.</p>
+<p>Vous utiliserez bien évidemment des constantes définies au niveau de la classe pour toutes les valeurs…</p>
+</li>
+<li><p class="first">Créez une classe <code class="docutils literal notranslate"><span class="pre">Voler</span></code> qui hérite de <code class="docutils literal notranslate"><span class="pre">Thread</span></code>
+ et qui fait redescendre progressivement (linéairement) la valeur de la 
+hauteur, avec une pause de quelques millisecondes entre chaque chute.</p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">run</span></code> de ce <em>thread</em> utilisera une boucle infinie pour appelle <code class="docutils literal notranslate"><span class="pre">moveDown</span></code>.</p>
+</li>
+<li><p class="first">Testez votre programme.</p>
+<p>Vous pourriez constater, si votre <code class="docutils literal notranslate"><span class="pre">sleep</span></code> est suffisamment court, un ralentissement dans l’interface. Cela provient du fait que la méthode <code class="docutils literal notranslate"><span class="pre">repaint</span></code>
+ ne redessine pas directement l’affichage : elle demande à l’OS de 
+redessiner dès que possible. Pour forcer le dessin, il faut faire 
+précéder cet appel de l’instruction <code class="docutils literal notranslate"><span class="pre">revalidate()</span></code>.</p>
+</li>
+<li><p class="first">N’oubliez pas de commenter au fur et à mesure !</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="un-parcours-d-obstacles">
+<h3>Un parcours d’obstacles<a class="headerlink" href="#un-parcours-d-obstacles" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans le jeu Flappy Bird, l’oiseau doit éviter des obstacles. Dans 
+notre variante, nous allons simplement dessiner un circuit sous la forme
+ d’une ligne brisée autour de laquelle l’ovale doit se promener. La 
+réalisation de cette fonctionnalité nécessite plusieurs choses :</p>
+<ol class="arabic simple">
+<li>Il faut calculer la ligne brisée, avec des pentes variables générées aléatoirement, comme sur la figure ci-dessous:</li>
+</ol>
+<a class="reference internal image-reference" href="https://perso.limsi.fr/sabouret/cours/pcii/_images/quickflappy2.png"><img alt="_images/quickflappy2.png" class="align-center" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/quickflappy2.png" style="width: 400px;"></a>
+<ol class="arabic simple" start="2">
+<li>La ligne devrait être infinie et générée à la volée chaque fois qu’un nouveau point est nécessaire</li>
+<li>La ligne devra avancer toute seule, ce qui nécessitera d’utiliser un autre <em>thread</em></li>
+<li>Il faudra détecter les collisions</li>
+</ol>
+<p>Nous allons traiter chacun de ces points l’un après l’autre</p>
+</div>
+<div class="section" id="construction-d-une-ligne-brisee">
+<h3>Construction d’une ligne brisée<a class="headerlink" href="#construction-d-une-ligne-brisee" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">java.awt.Point</span></code> permet de définir des objets caractérisés par des coordonnées <code class="docutils literal notranslate"><span class="pre">(x,y)</span></code>. Une ligne brisée est donc une liste de points ordonnée par valeur d’abscisse (<code class="docutils literal notranslate"><span class="pre">x</span></code>) croissante.</p>
+<div class="section" id="exercice-11">
+<h4>Exercice 11<a class="headerlink" href="#exercice-11" title="Lien permanent vers ce titre">¶</a></h4>
+<ol class="arabic">
+<li><p class="first">Construisez une classe <code class="docutils literal notranslate"><span class="pre">Parcours</span></code> dont l’attribut principal est un objet <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;Point&gt;</span></code> (une liste de points).</p>
+</li>
+<li><p class="first">Initialisez cette liste à l’aide de valeurs aléatoires d’abscisse croissante de telle sorte que le <strong>dernier point</strong> est au delà de la bordure de l’écran (donc d’abscisse strictement supérieur à la largeur du <code class="docutils literal notranslate"><span class="pre">JPanel</span></code>).</p>
+<p>Proposez (et rédigez en pseudo-code) un algorithme qui figurera dans votre rapport, puis implémentez-le en Java.</p>
+</li>
+<li><p class="first">Testez votre code en affichant simplement la liste.</p>
+</li>
+<li><p class="first">Munissez la classe d’un accesseur <code class="docutils literal notranslate"><span class="pre">getParcours</span></code> qui renvoie la liste de points (par exemple sous la forme d’un tableau de points) et ajoutez un attribut <code class="docutils literal notranslate"><span class="pre">Parcours</span></code> dans votre classe <code class="docutils literal notranslate"><span class="pre">Etat</span></code>.</p>
+</li>
+<li><p class="first">Modifiez la classe <code class="docutils literal notranslate"><span class="pre">Etat</span></code> et la classe <code class="docutils literal notranslate"><span class="pre">Vue</span></code> pour afficher la ligne brisée comme sur l’image ci-dessus.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="animation-de-la-ligne-brisee">
+<h3>Animation de la ligne brisée<a class="headerlink" href="#animation-de-la-ligne-brisee" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour faire avancer notre ovale sur le parcours, nous allons utiliser un compteur qui avance à chaque pas, grâce à un <em>thread</em>, et qui joue le rôle de «&nbsp;position 0&nbsp;» sur le parcours.</p>
+<div class="section" id="exercice-12">
+<h4>Exercice 12<a class="headerlink" href="#exercice-12" title="Lien permanent vers ce titre">¶</a></h4>
+<ol class="arabic">
+<li><p class="first">Ajoutez une variable <code class="docutils literal notranslate"><span class="pre">position</span></code> dans la classe <code class="docutils literal notranslate"><span class="pre">Parcours</span></code> et les accesseurs nécessaires: un <em>getter</em> pour récupérer la valeur courante de la position (cela correspondra au <strong>score</strong> du joueur) et un <em>setter</em>
+ pour faire avancer la position de quelques pixels (la valeur de 
+l’incrément étant, comme d’habitude, définie dans une constante).</p>
+<p><strong>Attention :</strong> votre algorithme de génération de 
+parcours devrait garantir que la pente n’est pas plus élevée que la 
+vitesse de chute, qui dépend de la valeur de la constante</p>
+</li>
+<li><p class="first">Modifiez votre méthode <code class="docutils literal notranslate"><span class="pre">getParcours</span></code> pour quelle ne renvoie que les points visibles, dont les coordonnées ont été calculées en retirant la valeur de <code class="docutils literal notranslate"><span class="pre">position</span></code> à leur valeur d’abscisse.</p>
+</li>
+<li><p class="first">Créez une classe <code class="docutils literal notranslate"><span class="pre">Avancer</span></code> qui implémente un <em>thread</em> pour faire avancer la position.</p>
+</li>
+<li><p class="first">Ajoutez l’affichage de la position dans la vue <code class="docutils literal notranslate"><span class="pre">Affichage</span></code>.
+ Comme la ligne brisée occupe possiblement tout l’espace, le plus simple
+ est d’effacer l’intégralité de la zone de dessin, avec la méthode <code class="docutils literal notranslate"><span class="pre">clearRect</span></code>, à chaque passage dans la méthode <code class="docutils literal notranslate"><span class="pre">paint</span></code>.</p>
+<p>Nous vous recommandons aussi d’écrire des sous-méthodes : une pour 
+l’affichage de l’ovale, une pour l’affichage de la ligne brisée : cela 
+facilitera la lecture de votre code</p>
+</li>
+<li><p class="first">Testez votre programme : vous devez voir la ligne brisée se décaler progressivement vers la droite, l’ovale restant sur place.</p>
+</li>
+<li><p class="first">N’oubliez pas de mettre à jour votre javadoc et de bien commenter votre code !</p>
+</li>
+</ol>
+</div>
+<div class="section" id="exercice-13">
+<h4>Exercice 13<a class="headerlink" href="#exercice-13" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Modifiez votre classe <code class="docutils literal notranslate"><span class="pre">Parcours</span></code> pour que la liste des points caractéristiques s’adapte à la position du joueur sur le parcours. Concrètement :</p>
+<ul class="simple">
+<li>Lorsque le dernier point rentre dans la fenêtre visible, il faut 
+générer un point supplémentaire pour que la ligne brisée ne s’interrompe
+ pas.</li>
+<li>Lorsque le deuxième point sur de la zone visible, il faut retirer le premier point de la liste : il ne sera plus utilisé.</li>
+</ul>
+</div>
+<div class="section" id="exercice-14">
+<h4>Exercice 14<a class="headerlink" href="#exercice-14" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Modifiez votre rapport de manière à y intégrer les éléments nouveaux,
+ en particulier quelles sont les fonctionnalités que vous avez ajoutées 
+(affichage, gestion des clic souris, génération de la ligne brisée, 
+avancée de la ligne brisée), ce qu’il reste à faire et comment le faire 
+(la détection des collisions), etc.</p>
+<p>Nous vous invitons à vous référer à nouveau au modèle de document de projet sur la page suivante <a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html#rapport"><span class="std std-ref">Annexe : structure d’un rapport de projet</span></a>.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Fin de la séance !<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Si vous avez terminé tout ce qui précède (code et documentation) 
+avant la fin de la séance 2, vous pouvez continuer et prendre un peu 
+d’avance. Sinon, vous devez <em>a minima</em> avoir terminé tout jusqu’à l’exercice 14 pour la prochaine fois.</p>
+<p>N’oubliez pas d’envoyer votre code source et votre rapport à votre 
+chargé de TD avant la prochaine séance pour qu’il puisse le regarder et 
+vous faire des remarques.</p>
+<a class="reference internal image-reference" href="https://perso.limsi.fr/sabouret/cours/pcii/_images/hourra.gif"><img alt="_images/hourra.gif" class="align-center" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/hourra.gif" style="width: 400px;"></a>
+</div>
+</div>
+<div class="section" id="troisieme-seance-finalisation-du-travail">
+<h2>Troisième séance : finalisation du travail<a class="headerlink" href="#troisieme-seance-finalisation-du-travail" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="detection-des-collisions">
+<h3>Détection des collisions<a class="headerlink" href="#detection-des-collisions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La dernière étape pour avoir un système fonctionnel est de détecter 
+les collisions. Pour cela, nous allons devoir vérifier, lors de chaque 
+changement de hauteur (méthodes <code class="docutils literal notranslate"><span class="pre">jump</span></code> et <code class="docutils literal notranslate"><span class="pre">moveDown</span></code>) si l’ovale est sorti de la ligne brisée.</p>
+<div class="section" id="exercice-15">
+<h4>Exercice 15<a class="headerlink" href="#exercice-15" title="Lien permanent vers ce titre">¶</a></h4>
+<ol class="arabic">
+<li><p class="first">Quelle est la formule qui permet de déterminer la 
+valeur de l’ordonnée sur la ligne brisée au point d’abscisse 
+correspondant à la position 0 de l’ovale, connaissant les coordonnées 
+relatives des points suivants et précédents ?</p>
+<p>Cette formule devra figurer dans la partie <em>Conception</em> votre rapport.</p>
+</li>
+<li><p class="first">En utilisant cette formule, écrivez une fonction <code class="docutils literal notranslate"><span class="pre">testPerdu</span></code> dans la classe <code class="docutils literal notranslate"><span class="pre">Etat</span></code> qui renvoie vrai si l’ovale est sorti de la ligne brisée.</p>
+<p><strong>Attention</strong> à ne pas faire une division entière dans le calcul de la pente du segment de droite !</p>
+</li>
+<li><p class="first">Modifiez votre programme de telle sorte que, dès que l’ovale sort de la ligne brisée :</p>
+<ul class="simple">
+<li>Les thread de vol et d’avancement du parcours s’arrêtent ;</li>
+<li>L’interface ne réagisse plus aux clics souris ;</li>
+<li>Un message s’affiche avec le score de l’utilisateur.
+Vous pouvez utiliser la classe <code class="docutils literal notranslate"><span class="pre">JOptionPane</span></code> pour faire apparaître une nouvelle fenêtre</li>
+</ul>
+</li>
+<li><p class="first">Testez votre programme.</p>
+</li>
+<li><p class="first">Modifier la documentation de votre projet (analyse,
+ plan de développement et conception) pour tenir compte des cette 
+nouvelle fonctionnalité. Pour rappel, la structure type de votre rapport
+ est  donnée sur la page suivante : <a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html#rapport"><span class="std std-ref">Annexe : structure d’un rapport de projet</span></a>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="ajout-d-elements-de-decors">
+<h3>Ajout d’éléments de décors<a class="headerlink" href="#ajout-d-elements-de-decors" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour augmenter l’impression de défilement, nous allons ajouter des 
+oiseaux qui se déplacent en battant des ailes dans le décors. Pour cela,
+ nous allons combiner les deux techniques que nous avons vues 
+précédemment :</p>
+<ul class="simple">
+<li>Dessin dans l’interface graphique ;</li>
+<li>Thread pour le mouvement.</li>
+</ul>
+<p>L’idée est d’implémenter une classe <code class="docutils literal notranslate"><span class="pre">Oiseau</span></code> qui implémente un <em>thread</em>
+ avec un paramètre de vitesse variable, choisi aléatoirement à la 
+création de l’instance. La vue de notre modèle MVC doit alors afficher 
+les oiseaux qui se déplacent dans le ciel, de droite à gauche, comme 
+s’ils étaient «&nbsp;rattrapés&nbsp;» par notre ovale.</p>
+<div class="section" id="exercice-16">
+<h4>Exercice 16<a class="headerlink" href="#exercice-16" title="Lien permanent vers ce titre">¶</a></h4>
+<ol class="arabic">
+<li><p class="first">Téléchargez l’image suivante dans votre projet :</p>
+<a class="reference internal image-reference" href="https://perso.limsi.fr/sabouret/cours/pcii/_images/animate-bird.gif"><img alt="_images/animate-bird.gif" class="align-center" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/animate-bird.gif" style="width: 200px;"></a>
+</li>
+<li><p class="first">En utilisant un outil de manipulation d’image comme <em>GIMP</em>, séparez ce GIF animé en 8 images fixes.</p>
+</li>
+<li><p class="first">Créez une classe <code class="docutils literal notranslate"><span class="pre">Oiseau</span></code> munie de quatre attributs: <code class="docutils literal notranslate"><span class="pre">delai</span></code> qui indique le temps (en millisecondes) entre chaque mise à jour de l’affichage pour l’oiseau, <code class="docutils literal notranslate"><span class="pre">état</span></code> qui permet de savoir dans quelle position est l’oiseau, <code class="docutils literal notranslate"><span class="pre">hauteur</span></code> qui définit la hauteur de l’oiseau dans la fenêtre graphique et <code class="docutils literal notranslate"><span class="pre">position</span></code> qui définit l’abscisse.</p>
+<p>Vous définirez aussi les <em>getters</em> et <em>setters</em> nécessaires.</p>
+<p>Le constructeur de la classe choisit une valeur aléatoire pour le 
+délai et la hauteur. La position est fixée de manière à ce que l’oiseau 
+soit complètement à droite, au delà de la fenêtre visible.</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">run</span></code> met à jour l’état et la position de l’oiseau toutes les <code class="docutils literal notranslate"><span class="pre">delai</span></code> millisecondes. Elle s’arrête lorsque l’oiseau est complètement sorti de la zone visible.</p>
+</li>
+<li><p class="first">Créez une classe <code class="docutils literal notranslate"><span class="pre">VueOiseau</span></code> qui possède un attribut de type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;Oiseau&gt;</span></code> et qui possède une méthode <code class="docutils literal notranslate"><span class="pre">dessiner(Graphics</span> <span class="pre">g)</span></code> pour gérer l’affichage des oiseaux. Cette méthode place dans <code class="docutils literal notranslate"><span class="pre">g</span></code> l’image correspondant à l’état de l’oiseau, placée à la position courante, pour chaque élément de sa liste.</p>
+<p>L’oiseau doit être retiré de la liste lorsque son <em>thread</em> s’arrête.</p>
+</li>
+<li><p class="first">Testez votre code avec un seul oiseau fixé initialisé dès le lancement de l’interface.</p>
+</li>
+<li><p class="first">Modifiez votre code pour munir la classe <code class="docutils literal notranslate"><span class="pre">VueOiseau</span></code>
+ d’un générateur aléatoire d’oiseau, avec une faible probabilité, pour 
+avoir des oiseaux qui défilent sur l’écran, mais pas trop d’un coup.</p>
+<p>Votre générateur aléatoire peut être déclenché depuis un <em>thread</em>, soit <code class="docutils literal notranslate"><span class="pre">Avancer</span></code>, soit un autre <em>thread</em> créé pour l’occasion.</p>
+</li>
+<li><p class="first">Modifiez votre documentation au fur et à mesure ! Nous vous recommandons aussi de ranger vos classes dans des packages.</p>
+<p>Vous devez montrer les différentes fonctionnalités que vous avez 
+implémentées et le temps que cela vous a pris, en n’oubliant pas le 
+temps nécessaire pour la documentation.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="un-peu-de-synchronisation">
+<h3>Un peu de synchronisation<a class="headerlink" href="#un-peu-de-synchronisation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans sa version actuelle, chaque <em>thread</em> alerte le <code class="docutils literal notranslate"><span class="pre">JPanel</span></code> lorsqu’il effectue des modification dans le modèle (avec des instructions <code class="docutils literal notranslate"><span class="pre">revalidate</span></code> et <code class="docutils literal notranslate"><span class="pre">repaint</span></code>)
+ pour que la vue soit corrigée. Cela conduit naturellement à une 
+surcharge au niveau de l’affichage, donc à des ralentissements, et donc à
+ un visuel assez peu satisfaisant.</p>
+<div class="section" id="exercice-17">
+<h4>Exercice 17<a class="headerlink" href="#exercice-17" title="Lien permanent vers ce titre">¶</a></h4>
+<ol class="arabic simple">
+<li>Pour contourner ce problème, implémentez un <em>thread</em> d’affichage qui s’exécute tous les 1/24 seconde (la fréquence peut être modifiée) et qui demande un <code class="docutils literal notranslate"><span class="pre">repaint</span></code> si le modèle a été modifié. Les autres <em>threads</em> devront simplement prévenir ce <em>thread</em> d’affichage, et non plus directement la vue.</li>
+</ol>
+<p><strong>Remarque :</strong> une solution pour simplifier l’écriture de ce <em>thread</em> consiste à utiliser la classe <code class="docutils literal notranslate"><span class="pre">javax.swing.Timer</span></code> qui déclenche un événement à intervalle réguliers. Mais vous pouvez aussi passer par un thread classique:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">new</span> <span class="n">Thread</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">@Override</span>
+        <span class="n">public</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">while</span> <span class="p">(</span><span class="n">true</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">try</span> <span class="p">{</span> <span class="n">Thread</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span> <span class="p">}</span>
+                        <span class="n">catch</span> <span class="p">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span> <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span> <span class="p">}</span>
+                        <span class="n">revalidate</span><span class="p">();</span>
+                        <span class="n">repaint</span><span class="p">();</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">})</span><span class="o">.</span><span class="n">start</span><span class="p">();</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Pensez à mettre à jour votre documentation et à bien commenter l’ensemble de votre code !</li>
+<li>Envoyez votre code et votre rapport votre chargé de TD.</li>
+</ol>
+<p><strong>Attention</strong> il s’agit de votre premier livrable (à remettre impérativement avant la prochaine séance). <strong>Il sera noté et cela constituera votre note (individuelle) de CC.</strong></p>
+</div>
+</div>
+</div>
+<div class="section" id="pour-aller-plus-loin">
+<h2>Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Avant de commencer cette dernière partie, vous devez avoir complètement terminé le travail des séances précédentes. <strong>Faites valider cette étape par votre chargé de TD !</strong></p>
+<p>Si vous avez vraiment tout terminé, voici quelques suggestions pour 
+améliorer votre jeu. Toutes les modifications qui sont présentées ici 
+sont optionnelles.</p>
+<div class="section" id="ameliorer-la-courbe-brisee">
+<h3>Améliorer la courbe brisée<a class="headerlink" href="#ameliorer-la-courbe-brisee" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour améliorer la qualité de notre courbe brisée, nous pouvons :
+* Utiliser différentes épaisseurs de traits et de couleur pour créer de la consistance ;
+* Utiliser des courbes de Bezier pour arrondir les angles.</p>
+<div class="section" id="exercice-18-optionnel">
+<h4>Exercice 18 (optionnel)<a class="headerlink" href="#exercice-18-optionnel" title="Lien permanent vers ce titre">¶</a></h4>
+<p>L’objet <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> qui est passé à la méthode <code class="docutils literal notranslate"><span class="pre">paint</span></code> peut être <em>transtypé</em> en instance de la classe <code class="docutils literal notranslate"><span class="pre">Graphics2D</span></code>, qui est une sous-classe de <code class="docutils literal notranslate"><span class="pre">Graphics</span></code> :</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>L’avantage de la classe <code class="docutils literal notranslate"><span class="pre">Graphics2D</span></code> est qu’elle propose des outils plus sophistiqués pour dessiner. En particulier, il est possible de :</p>
+<ul class="simple">
+<li>Fixer l’épaisseur d’un trait en utilisant les classes <code class="docutils literal notranslate"><span class="pre">Stroke</span></code> et <code class="docutils literal notranslate"><span class="pre">Shape</span></code> ;</li>
+<li>Définir des motifs de remplissage ou des dégragés ;</li>
+<li>Composer plusieurs dessins ou appliquer des transformations géométrique sur une partie de dessin ;</li>
+<li>Appliquer un filtre anti-aliasing sur la zone de dessin ;</li>
+<li>Appliquer des filtres sur des images ;</li>
+<li><em>etc</em>.</li>
+</ul>
+<p>Vous pouvez mettre en œuvre cette amélioration si vous le souhaitez:</p>
+<ol class="arabic simple">
+<li>Utilisez les <code class="docutils literal notranslate"><span class="pre">Stroke</span></code> pour dessiner un ovale et une ligne brisée plus épais.</li>
+<li>Pensez à modifier votre méthode <code class="docutils literal notranslate"><span class="pre">testPerdu</span></code> pour prendre en compte ces changements.</li>
+<li>Pensez à mettre à jour votre documentation et à bien commenter l’ensemble de votre code !</li>
+</ol>
+</div>
+<div class="section" id="exercice-19-optionnel">
+<h4>Exercice 19 (optionnel)<a class="headerlink" href="#exercice-19-optionnel" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Une <em>courbe de Bézier</em> (ou <em>spline</em> en anglais) est 
+caractérisée par 3 points (courbe quadratique) ou 4 points (courbe 
+cubique) : les deux extrémités plus un ou deux points de contrôle, qui 
+définissent un polygone dans lequel la courbe doit être englobée.</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="https://perso.limsi.fr/sabouret/cours/pcii/_images/splines.png"><img alt="_images/splines.png" src="Premi%C3%A8re%20partie%20%E2%80%93%20tutoriel%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/splines.png" style="width: 300px;"></a>
+<p class="caption"><span class="caption-text">Courbes de Bézier cubique (en haut) et quadratique (en bas)</span></p>
+<div class="legend">
+<em>source: Jean Berstel</em></div>
+</div>
+<p>La courbe est tangente au début à la droite définie par les deux 
+premiers points, et à la fin par celle définie par les deux derniers. Le
+ support de la courbe est un polynôme dont les coefficients sont définis
+ par les points de contrôle. Concrètement, le calcul des différents 
+points la courbe se fait en utilisant un algorithme itératif à base de 
+segments, et très bien expliqué sur la <a class="reference external" href="https://fr.wikipedia.org/wiki/Courbe_de_B%C3%A9zier">page Wikipedia des courbes de Bézier</a>.</p>
+<p>La bibliothèque AWT définit les classes <code class="docutils literal notranslate"><span class="pre">QuadCurve2D</span></code> et <code class="docutils literal notranslate"><span class="pre">CubicCurve2D</span></code> qui implémentent cet algorithme. Pour l’utilisez, vous devez créer un objet de la classe interne <code class="docutils literal notranslate"><span class="pre">XXX.Double</span></code> ou <code class="docutils literal notranslate"><span class="pre">XXX.Float</span></code> puis utiliser la méthode <code class="docutils literal notranslate"><span class="pre">setCurve</span></code> pour lui donner les points caractéristiques, comme sur l’exemple ci-dessous :</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QuadCurve2D</span> <span class="n">courbe</span> <span class="o">=</span> <span class="n">new</span> <span class="n">QuadCurve2D</span><span class="o">.</span><span class="n">Double</span><span class="p">();</span>
+<span class="n">debut</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Point2D</span><span class="o">.</span><span class="n">Double</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">);</span>
+<span class="n">ctrl</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Point2D</span><span class="o">.</span><span class="n">Double</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">);</span>
+<span class="n">fin</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Point2D</span><span class="o">.</span><span class="n">Double</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">);</span>
+<span class="n">courbe</span><span class="o">.</span><span class="n">setCurve</span><span class="p">(</span><span class="n">debut</span><span class="p">,</span><span class="n">ctrl</span><span class="p">,</span><span class="n">fin</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Pour dessiner cette courbe, vous devez utiliser la classe <code class="docutils literal notranslate"><span class="pre">Graphics2D</span></code> vue précédemment :</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>
+<span class="n">g2</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">courbe</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Enfin, vous pouvez déterminer si un point est sur la spline en utilisant la méthode <code class="docutils literal notranslate"><span class="pre">contains</span></code> de la classe <code class="docutils literal notranslate"><span class="pre">Shape</span></code> dont héritent les classes des courbes de Bézier.</p>
+<p>Vous pouvez mettre en œuvre cette amélioration si vous le souhaitez:</p>
+<ol class="arabic">
+<li><p class="first">Dans la méthode de qui génère la courbe brisée:</p>
+<ol class="loweralpha">
+<li><p class="first">Calculez, pour chaque paire de point, le point milieu.</p>
+</li>
+<li><p class="first">Construisez une courbe quadratique pour chaque 
+point d’inflexion de la ligne brisée. Cette courbe sera tangente aux 
+points milieu des segments précédents et suivants et son point de 
+contrôle sera le point d’inflexion.</p>
+<p><strong>Remarque :</strong> cela nécessitera certainement que vous ajoutiez des points au début et à la fin de votre liste…</p>
+</li>
+</ol>
+</li>
+<li><p class="first">Dans la méthode d’affichage, dessinez cette courbe (au lieu de la courbe initiale)</p>
+</li>
+<li><p class="first">Dans la méthode <code class="docutils literal notranslate"><span class="pre">testPerdu</span></code> pour tenir compte de cette nouvelle courbe.</p>
+</li>
+<li><p class="first">Pensez à modifier votre documentation et à bien commenter l’ensemble de votre code !</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="rendre-les-mouvements-plus-dynamiques">
+<h3>Rendre les mouvements plus dynamiques<a class="headerlink" href="#rendre-les-mouvements-plus-dynamiques" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour donner une meilleure impression de mouvement, comme dans le jeu <em>Ketchapp Circle</em>,
+ vous pouvez utiliser une vitesse pour les mouvements de votre cercle. 
+Cliquer sur l’écran ne modifie alors plus la position du cercle mais 
+crée une accélération en modifiant la vitesse de chute (qui devient 
+négative). Un thread fait revenir la vitesse de chute à sa valeur 
+initiale en un certain temps (accélération).</p>
+<div class="section" id="exercice-20-optionnel">
+<h4>Exercice 20 (optionnel)<a class="headerlink" href="#exercice-20-optionnel" title="Lien permanent vers ce titre">¶</a></h4>
+<ol class="arabic simple">
+<li>Ajoutez une variable de vitesse</li>
+<li>Modifiez l’effet des actions</li>
+</ol>
+<ol class="arabic simple" start="4">
+<li>Pensez à modifier votre documentation et à bien commenter l’ensemble de votre code !</li>
+</ol>
+</div>
+</div>
+<div class="section" id="creer-un-jar-executable">
+<h3>Créer un .jar exécutable<a class="headerlink" href="#creer-un-jar-executable" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est peu naturel de demander à l’utilisateur de lancer un IDE pour 
+lancer le jeu. Il faudrait mieux construire une archive Java (fichier <code class="docutils literal notranslate"><span class="pre">.jar</span></code>)
+ exécutable. La plupart des IDE offrent cette fonctionnalité de base : 
+référez-vous à la documentation de votre IDE ! Vous pouvez aussi 
+utiliser la ligne de commande pour construire votre fichier :</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>$ jar cf mon-repertoire
+</pre></div>
+</div>
+<p>Attention: si vous utilisez des images ou des sons dans votre code, 
+vous devrez aussi intégrer le répertoire avec les images dans votre .jar
+ et vous devrez utiliser des méthodes spécifiques pour charger ces 
+fichiers.</p>
+<div class="section" id="exercice-21-optionnel">
+<h4>Exercice 21 (optionnel)<a class="headerlink" href="#exercice-21-optionnel" title="Lien permanent vers ce titre">¶</a></h4>
+<ol class="arabic simple">
+<li>Construisez un fichier <code class="docutils literal notranslate"><span class="pre">flappy.jar</span></code> exécutable, copiez-le sur votre bureau et testez-le.</li>
+<li>Modifiez votre documentation de projet (documentation utilisateur et documentation développeur).</li>
+</ol>
+</div>
+</div>
+<div class="section" id="encore-plus-difficile">
+<h3>Encore plus difficile !<a class="headerlink" href="#encore-plus-difficile" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour dessiner des nuages ou donner un effet de texture dans le décors
+ (en plus des oiseaux qui créent un effet de défilement), nous pouvons 
+utiliser un <strong>bruit de Perlin</strong> : <a class="reference external" href="https://fr.wikipedia.org/wiki/Bruit_de_Perlin">https://fr.wikipedia.org/wiki/Bruit_de_Perlin</a></p>
+<p>Le <a class="reference external" href="https://cochoy-jeremy.developpez.com/tutoriels/2d/introduction-bruit-perlin/">tutoriel de Jérémy Cochoy sur Developpez.com</a> explique comment construire un bruit de Perlin en deux dimensions.</p>
+<div class="section" id="exercice-22">
+<h4>Exercice 22<a class="headerlink" href="#exercice-22" title="Lien permanent vers ce titre">¶</a></h4>
+<p>En utilisant la méthode décrite dans le tutoriel de Jérémy Cochoy et 
+les méthodes de la classe Shape, calculez un bruit de Perlin en <strong>deux dimensions</strong> pour dessiner des ovales représentant des nuages avec une structure.</p>
+<p>Vous devez expliquer votre contribution dans votre documentation de projet.</p>
+</div>
+<div class="section" id="exercice-23">
+<h4>Exercice 23<a class="headerlink" href="#exercice-23" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Peut-on calculer les points de la ligne brisée en utilisant un bruit de Perlin en <strong>une seule dimension</strong> ?</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="https://perso.limsi.fr/sabouret/cours/pcii/index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Première partie – tutoriel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#premiere-seance-interface-interactive">Première séance : interface interactive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deuxieme-seance-programmation-concurrente">Deuxième séance : programmation concurrente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troisieme-seance-finalisation-du-travail">Troisième séance : finalisation du travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/projet.html">Deuxième partie – projet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/soutenance-bis.html">Soutenances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html">Annexe : structure d’un rapport de projet</a></li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="https://perso.limsi.fr/sabouret/cours/pcii/intro.html" title="Chapitre précédent">Introduction</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="https://perso.limsi.fr/sabouret/cours/pcii/projet.html" title="Chapitre suivant">Deuxième partie – projet</a></p>
+<div id="searchbox" style="" role="search">
+  <h3>Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/genindex.html" title="Index général">index</a></li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/projet.html" title="Deuxième partie – projet">suivant</a> |</li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/intro.html" title="Introduction">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="https://perso.limsi.fr/sabouret/cours/pcii/index.html">Documentation Programmation Concurrente et Interfaces Interactives 2020-2021</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        © Copyright 2019-2021, Nicolas Sabouret.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  
+</body></html>

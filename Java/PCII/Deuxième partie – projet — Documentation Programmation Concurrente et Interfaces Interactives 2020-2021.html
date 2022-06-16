@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Deuxième partie – projet — Documentation Programmation Concurrente et Interfaces Interactives 2020-2021</title>
+    <link rel="stylesheet" href="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/classic.css" type="text/css">
+    <link rel="stylesheet" href="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/pygments.css" type="text/css">
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/documentation_options.js"></script>
+    <script type="text/javascript" src="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/jquery.js"></script>
+    <script type="text/javascript" src="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/underscore.js"></script>
+    <script type="text/javascript" src="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/doctools.js"></script>
+    <script type="text/javascript" src="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/language_data.js"></script>
+    <script type="text/javascript" src="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/translations.js"></script>
+    <script async="async" type="text/javascript" src="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/latest.js"></script>
+    
+    <link rel="index" title="Index" href="https://perso.limsi.fr/sabouret/cours/pcii/genindex.html">
+    <link rel="search" title="Recherche" href="https://perso.limsi.fr/sabouret/cours/pcii/search.html">
+    <link rel="next" title="Soutenances" href="https://perso.limsi.fr/sabouret/cours/pcii/soutenance-2022.html">
+    <link rel="prev" title="Première partie – tutoriel" href="https://perso.limsi.fr/sabouret/cours/pcii/tutoriel.html"> 
+  <script type="text/javascript" async="" src="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body><div id="MathJax_Message" style="display: none;"></div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/soutenance-2022.html" title="Soutenances" accesskey="N">suivant</a> |</li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/tutoriel.html" title="Première partie – tutoriel" accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="https://perso.limsi.fr/sabouret/cours/pcii/index.html">Documentation Programmation Concurrente et Interfaces Interactives 2020-2021</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="deuxieme-partie-projet">
+<h1>Deuxième partie – projet<a class="headerlink" href="#deuxieme-partie-projet" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La deuxième partie du cours de Programmation Concurrente et des 
+Interfaces Interactives est dédié à la réalisation d’un projet en 
+autonomie. Pour réaliser ce projet, vous allez utiliser les 
+connaissances acquises au cours des séances précédentes. En cas de 
+difficulté, votre chargé de TD est là pour vous aider à avancer dans 
+votre projet : ne restez pas inutilement bloqués !</p>
+<p>Nous présentons tout d’abord l’objectif général puis nous listons des
+ fonctionnalités et une proposition de plan de développement, que vous 
+pouvez adapter à votre besoin.</p>
+<p><strong>Attention:</strong> Le projet s’effectue en groupe de 3 ou 4. Si vous n’avez pas déjà constitué votre groupe, c’est le moment de le faire !</p>
+<div class="section" id="principe-general">
+<h2>Principe général<a class="headerlink" href="#principe-general" title="Lien permanent vers ce titre">¶</a></h2>
+<p>L’objectif du projet est de réaliser un jeu vidéo librement inspiré 
+des jeux de stratégie en temps réelle (Dune 2000, Age of Empire, 
+Warcraft, Starcraft…). Le joueur contrôle les actions d’unités qui se 
+déplacent sur une carte vue du dessus. Il donne des ordres aux unités 
+afin d’atteindre un objectif, économique ou militaire. Chaque unité sur 
+la carte a sa propre temporalité (vitesse de déplacement, vitesse de 
+construction d’un bâtiment ou de production de nouvelles unités) ce qui 
+rend ce type de jeux bien adapté à nos objectifs pédagogique : 
+programmation concurrente, interface interactive… et gestion de projet !</p>
+<p>Pour ne pas avoir à gérer les problématiques réseaux ou IA de ces 
+jeux, nous ferons une variante mono-joueur dans laquelle il s’agit 
+d’atteindre un objectif économique en faisant face à un environnement 
+hostile. En cela, nous nous rapprochons plus des jeux de simulation 
+(SimCity &amp; co), des jeux de gestion du temps (Cooking Fever). Nous 
+garderons toutefois les mécanismes de déplacement des unités, de panneau
+ de contrôle propre à chaque unité, de construction et de collecte de 
+ressource, et de «&nbsp;temps réel&nbsp;» qui nécessite de suivre ce que
+ fait chaque unité (ce qui nous éloigne un peu des jeux 
+«&nbsp;Idle&nbsp;» devenus populaires sur plate-formes mobiles depuis 
+quelques années).</p>
+<p>La prochaine section fixe un ensemble de contraintes pour le jeu. Ce 
+cadre imposé vous laisse malgré tout une grande liberté aussi bien au 
+niveau du <em>game design</em> que des aspects visuels du jeu. Utilisez cette liberté à bonne escient et faites appel à votre créativité !</p>
+</div>
+<div class="section" id="elements-de-specification">
+<h2>Éléments de spécification<a class="headerlink" href="#elements-de-specification" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous vous demandons de respecter les contraintes suivantes :</p>
+<ul class="simple">
+<li>L’interface est composée d’une carte (où se déplacent les unités) et
+ d’un panneau de contrôle, comme illustré sur l’image suivante :</li>
+</ul>
+<a class="reference internal image-reference" href="https://perso.limsi.fr/sabouret/cours/pcii/_images/flowercraft-legende.png"><img alt="_images/flowercraft-legende.png" class="align-center" src="Deuxi%C3%A8me%20partie%20%E2%80%93%20projet%20%E2%80%94%20Documentation%20Programmation%20Concurrente%20et%20Interfaces%20Interactives%202020-2021_files/flowercraft-legende.png" style="width: 500px;"></a>
+<ul class="simple">
+<li>Le joueur peut cliquer sur une unité pour la sélectionner : cela fait apparaître le panneau de contrôle de l’unité</li>
+<li>Certaines unités sont contrôlables par le joueur : le panneau de 
+contrôle est alors composés de boutons correspondant aux actions 
+possible de l’unité</li>
+<li>D’autres unités ne sont pas contrôlables directement : leur panneau de contrôle fournit des informations utiles au joueur</li>
+<li>Certaines unités se déplacent sur la carte</li>
+<li>Chaque unité est associée à un ou plusieurs threads pour gérer les 
+actions qu’elle effectue (soit automatiquement, soit sur demande du 
+joueur)</li>
+<li>Le joueur doit gérer un ensemble de ressources qu’il collecte à 
+l’aide des unités qu’il contrôle en agissant sur les unités qu’il ne 
+contrôle pas.</li>
+<li>Le jeu définit un objectif à atteindre en rapport avec ces ressources</li>
+</ul>
+<p>Une fois ce cadre posé, vous pouvez vous écarter de la proposition 
+qui est faite dans la prochaine section, dont l’objectif est de vous 
+présenter une réalisation concrète et faisable en 7 semaines.</p>
+</div>
+<div class="section" id="flowercraft">
+<h2>Flowercraft<a class="headerlink" href="#flowercraft" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La thématique du jeu proposée est celle d’une jardinerie : le joueur 
+contrôle des jardiniers qui plantent et récoltent des fleurs de 
+différent type pour composer des bouquets. Les bouquets rapportent de 
+l’argent qui permettent d’embaucher plus de jardiniers ou d’acheter de 
+nouvelles graines pour faire plus de bouquets.</p>
+<p>Malheureusement, une famille de lapins a élu domicile à proximité de 
+la jardinerie et les lapins raffolent des fleurs fraîches. Vous devrez 
+les empêcher de ruiner votre entreprise.</p>
+<div class="section" id="implementation-du-jeu">
+<h3>Implémentation du jeu<a class="headerlink" href="#implementation-du-jeu" title="Lien permanent vers ce titre">¶</a></h3>
+<ul>
+<li><p class="first">La carte peut être découpée sous la forme d’une 
+grille carrée ou hexagonale : les unités se déplacent entre les cases de
+ la grille, soit en ligne droite, soit en calculant un chemin à l’aide 
+d’un algorithme des plus courts chemins (type A*).</p>
+</li>
+<li><p class="first">Les unités contrôlables par le joueur sont les jardiniers et les bâtiments :</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Un jardinier peut :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Se déplacer sur la carte, pas les bâtiments. Le déplacement prend du
+ temps et se fait en continue, mais il peut être interrompu ou modifié 
+en cours de route.</li>
+<li>Construire un bâtiment sur la case où il se trouve contre de 
+l’argent, à condition que la case soit vide d’autre unité. Cette action 
+prend du temps.</li>
+<li>Composer des bouquets s’il est dans le bâtiment principal. Cette action prend du temps.</li>
+<li>Planter une fleur sur la case où il se trouve à condition de 
+disposer de graines du bon type et d’être sur une case vide d’autre 
+unité. Cette action est instantanée.</li>
+<li>Récolter une fleur plantée sur une case où il se trouve. Cette action est instantanée.</li>
+<li>Effrayer les lapins dans les cases voisine. Comme pour le 
+déplacement, cette action dure un certain temps mais peut être 
+interrompue. Vous pouvez choisir que le jardinier se déplace pour 
+chasser le lapin ou loin ou qu’il s’agite en restant sur place.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Un bâtiment, selon son « type de bâtiment » déterminé lors de la construction, peut :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Produire un nouveau jardinier à l’emplacement où il se trouve, 
+contre de l’argent (bâtiment principal). Cette action prend du temps.</li>
+<li>Permettre au joueur d’acheter des graines contre de l’argent (bâtiment principal). Cette action est instantanée.</li>
+<li>Collecter les fleurs d’un jardinier lorsqu’il arrive sur le bâtiment
+ (bâtiment principal). Cette action est automatique et instantanée.</li>
+<li>Vendre les bouquets réalisés par le jardinier (bâtiment principal). Cette action est automatique et instantanée.</li>
+<li>Augmenter la production des fleurs dans les cases voisines (bâtiment
+ de production). Cette action est automatique et instantanée.</li>
+<li>Effrayer les lapins dans les cases voisines (bâtiment de défense). Cette action est automatique et instantanée.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Les unités non contrôlables par le joueur sont les fleurs et les lapins :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Une fleur est caractérisée par son type (selon la graine utilisée). 
+Elle pousse à une certaine vitesse et doit être récoltée à maturité, 
+sans quoi elle se fane et est perdue. Une fleur ne se déplace pas.</li>
+<li>Un lapin est une unité mobile sur la carte, suivant un algorithme 
+pseudo-aléatoire qui le conduit à se rapprocher, par bonds successifs, 
+des fleurs. Lorsqu’un lapin reste suffisamment longtemps sur une case où
+ est plantée une fleur, il la mange. Lorsqu’un lapin est à proximité 
+d’un bâtiment de défense ou d’un jardinier en train de l’effrayer, il 
+bondit dans la direction opposée. Les lapins rassasiés ou trop effrayés 
+partent vers le bord de la carte où ils disparaissent. D’autres lapins 
+peuvent arriver par les bords de la carte pour se sustenter dans la 
+jardinerie.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Plusieurs unités peuvent se trouver sur la même 
+case. Lorsqu’on clique sur la case, on sélectionne en priorité un 
+jardinier s’il y en a au moins un, sinon on sélectionne le bâtiment ou 
+la fleur, sinon on sélectionne le lapin.</p>
+</li>
+<li><p class="first">Les objectifs peuvent être de produire une certaine
+ quantité d’un certain bouquet ou de collecter une certaine somme 
+d’argent dans un temps imparti.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="fonctionnalites-supplementaires">
+<h3>Fonctionnalités supplémentaires<a class="headerlink" href="#fonctionnalites-supplementaires" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Vous pouvez facilement étendre le jeu en ajoutant de nouveaux types 
+de bâtiments, de fleurs ou d’unités. Vous pouvez joueur sur le gameplay à
+ travers les bouquets à confectionner et les ressources que vous obtenez
+ à partir de ces bouquets.</p>
+<p>Vous pouvez aussi créer vos propres visuels pour les éléments du jeu ainsi que des éléments sonores.</p>
+</div>
+</div>
+<div class="section" id="organisation-du-travail">
+<h2>Organisation du travail<a class="headerlink" href="#organisation-du-travail" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Avant toute chose, repartez de la structure d’une documentation de projet : <a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html#rapport"><span class="std std-ref">Annexe : structure d’un rapport de projet</span></a>.</p>
+<p>L’objectif de la première séance est d’établir un cahier des charges 
+et un plan de développement qui répartit les tâches entre les membres du
+ groupe. Vous allez aussi mettre en place votre dépôt git est les 
+quelques outils de travail (groupe pour communiquer entre vous, 
+calendrier partagé, etc). Dans l’établissement du cahier des charges, il
+ faut être suffisamment précis pour que chacun sache ce qu’il aura à 
+faire dans la durée.</p>
+<p>Par exemple :</p>
+<ul class="simple">
+<li>Il faut implémenter un modèle MVC pour l’interface avec la carte et 
+les panneaux de contrôle lorsqu’on clique sur les unités. Qui s’en 
+charge ? Quelle est la première étape ? Pour quand a-t-on un outil 
+minimal permettant de brancher les autres fonctionnalités dessus ?</li>
+<li>Il faut définir un mécanisme de déplacement avec un <em>thread</em> 
+qui peut être interrompu, mais de manière à ce que les unités s’arrêtent
+ sur une case. Qui s’en charge ? Est-ce qu’on commence par un 
+déplacement en ligne droite puis on l’enrichit avec un algorithme A* 
+pour contourner les bâtiments et les massifs de fleurs ?</li>
+<li>Il faut collecter des visuels pour chaque unité. Qui s’en charge ? 
+Est-ce que nous définissons les types d’unités ensemble ainsi que les 
+objectifs du jeu (types de fleurs, bouquets, scores…) ou est-ce qu’une 
+seule personne s’en occupe ? Est-ce que chacun prend en charge un type 
+d’unité ou bien est-ce qu’une seule personne développe la mécanique de 
+toutes les unités ?</li>
+<li>Comment se répartit-on le travail sur la documentation du projet ?</li>
+<li>Quels sont les jalons qu’on se fixe, en terme de semaine ?</li>
+</ul>
+<div class="section" id="proposition-pour-les-jalons">
+<h3>Proposition pour les jalons<a class="headerlink" href="#proposition-pour-les-jalons" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les jalons sont à définir en fonction des grandes tâches et 
+fonctionnalités identifiées dans votre cahier des charges. Nous vous 
+recommandons de définir des jalons pour chaque semaine de travail. 
+Voici, à titre indicatif, une proposition de jalons construits autour de
+ 4 grandes familles de tâches : la documentation, la structuration du 
+code, l’interface graphique et le jeu lui-même. Le projet est organisé 
+sur 7 semaines.</p>
+<ul class="simple">
+<li><strong>fin de la semaine 1 : Mise en place du projet</strong><ul>
+<li>Documentation : cahier des charge et plan de développement rédigés (y compris les jalons)</li>
+<li>Structure : classes abstraites pour les unités en séparant le modèle et la vue, méthodes abstraites pour la partie vue</li>
+<li>Interface : affichage de la carte et d’unités (classe abstraite), 
+aucune interaction souris pour l’instant, le panneau de contrôle est 
+vide, la vue est rafraîchie par un thread</li>
+<li>Jeu : définition de la mécanique du jeu, des types d’unités (qui 
+pourront être complétés plus tard si le temps le permet) qu’il faudra 
+implémenter pour l’étape suivante</li>
+</ul>
+</li>
+<li><strong>fin de la semaine 3 : Maquette</strong><ul>
+<li>Documentation : analyse globale et éléments de conception</li>
+<li>Structure : packages, définition des sous-classes pour les unités 
+(vue et modèle), classes abstraites pour le panneau de contrôle (vue et 
+modèle), contrôleur clavier et souris</li>
+<li>Interface : affichage de la carte, sélection d’unités, affichage du 
+panneau de contrôle avec les boutons, le contrôleur souris sait sur quel
+ bouton nous cliquons, tous les boutons sont inactifs sauf le bouton de 
+déplacement, il est possible de déplacer une unité</li>
+<li>Jeu : collection d’éléments visuels pour la carte et le panneau de contrôle que nous voudrons intégrer dans l’étape suivante</li>
+</ul>
+</li>
+<li><strong>fin semaine 5 : Prototype</strong><ul>
+<li>Documentation : analyse détaillée et conception, première version de la documentation utilisateur</li>
+<li>Structure : toutes les unités sont présentes, même si certaines ne 
+sont pas encore complètement implémentées ; classes abstraites avec <em>thread</em> pour chaque action sur la durée</li>
+<li>Interface : une partie des visuels sont intégrés, il est possible de planter, de collecter des fleurs et de vendre des bouquets</li>
+<li>Jeu : missions et objectifs définis (mais non-encore implémentés)</li>
+</ul>
+</li>
+<li><strong>fin semaine 7 : Version finale</strong><ul>
+<li>En réalité, vous avez jusqu’à la fin de la semaine 8… mais il faudra aussi garder du temps pour les transparents et le rapport!</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="soyez-ambitieux-mais-pas-trop">
+<h3>Soyez ambitieux… mais pas trop !<a class="headerlink" href="#soyez-ambitieux-mais-pas-trop" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour cette première séance, prenez bien le temps de lister les fonctionnalités que vous souhaitez développer et de rédiger :</p>
+<ul class="simple">
+<li>Une introduction</li>
+<li>Une analyse globale</li>
+<li>Un premier plan de développement réaliste (il ne vous reste que 6 
+séances tout compris, gardez aussi du temps pour la préparation de la 
+soutenance et la finalisation du rapport)</li>
+</ul>
+<p>Commencez avec un petit ensemble de fonctionnalités : vous pourrez 
+toujours en rajouter plus tard s’il reste du temps (et vous modifierez 
+votre rapport pour faire comme si vous aviez tout pensé depuis le début)
+ !</p>
+<p>Mettez en place un dépôt git, créez un premier projet avec une 
+structure de packages et de classes pour pouvoir travailler à plusieurs 
+sur le code. Faites quelques essais avec des bouts de codes pour 
+vérifier que tout le monde peut travailler dans son coin.</p>
+</div>
+</div>
+<div class="section" id="evaluation">
+<h2>Évaluation<a class="headerlink" href="#evaluation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour rappel, l’évaluation de votre projet se décompose en 4 notes :</p>
+<ul class="simple">
+<li>30% travail personnel et compétences acquises</li>
+<li>20% qualité du rapport <em>(commune à l’ensemble des membres du groupe)</em></li>
+<li>10% qualité du support de la présentation <em>(commune à l’ensemble des membres du groupe)</em></li>
+<li>10% soutenance (qualité de la présentation et réponses aux questions)</li>
+</ul>
+<p>Vous devez communiquer votre rapport au plus tard <strong>jeudi 7 avril au soir</strong>. Tout retard sera pénalisé.</p>
+<p>La soutenance aura lieu sur l’horaire de la séance, lundi 11 avril après-midi et l’ordre de passage est indiqué dans la section <a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/soutenance-2022.html#soutenance"><span class="std std-ref">Soutenances</span></a></p>
+<p>Le rapport et la soutenance doivent mettre en évidence trois éléments :</p>
+<ul class="simple">
+<li>Votre capacité à effectuer un travail qui répond à un cahier des charges</li>
+<li>Votre capacité à documenter ce travail et à le présenter de manière claire</li>
+<li>Votre capacité à proposer des solutions aux différents problèmes techniques</li>
+</ul>
+<p>Référez-vous au modèle <a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html#rapport"><span class="std std-ref">Annexe : structure d’un rapport de projet</span></a>
+ pour la rédaction de votre rapport ! N’oubliez pas la conclusion : ce 
+que vous retenez de ce projet, ce que cela vous a apporté, quelles sont 
+les difficulté que vous n’avez pas pu résoudre et de quoi êtes vous le 
+plus fier. <strong>Positivez !</strong></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="https://perso.limsi.fr/sabouret/cours/pcii/index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/tutoriel.html">Première partie – tutoriel</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deuxième partie – projet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#principe-general">Principe général</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#elements-de-specification">Éléments de spécification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flowercraft">Flowercraft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#organisation-du-travail">Organisation du travail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluation">Évaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/soutenance-2022.html">Soutenances</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://perso.limsi.fr/sabouret/cours/pcii/rapport.html">Annexe : structure d’un rapport de projet</a></li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="https://perso.limsi.fr/sabouret/cours/pcii/tutoriel.html" title="Chapitre précédent">Première partie – tutoriel</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="https://perso.limsi.fr/sabouret/cours/pcii/soutenance-2022.html" title="Chapitre suivant">Soutenances</a></p>
+<div id="searchbox" style="" role="search">
+  <h3>Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/genindex.html" title="Index général">index</a></li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/soutenance-2022.html" title="Soutenances">suivant</a> |</li>
+        <li class="right">
+          <a href="https://perso.limsi.fr/sabouret/cours/pcii/tutoriel.html" title="Première partie – tutoriel">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="https://perso.limsi.fr/sabouret/cours/pcii/index.html">Documentation Programmation Concurrente et Interfaces Interactives 2020-2021</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        © Copyright 2019-2021, Nicolas Sabouret.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  
+</body></html>
